@@ -1,5 +1,8 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS } from '../data/site';
 
 interface Props {
@@ -10,7 +13,7 @@ interface Props {
 }
 
 export function Nav({ overlay = false, visible = true }: Props) {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,16 +25,17 @@ export function Nav({ overlay = false, visible = true }: Props) {
   }, [overlay]);
 
   const solid = !overlay || scrolled;
+  const isActive = (to: string) => !to.includes('#') && (pathname === to || pathname.startsWith(`${to}/`));
 
   return (
-    <nav className={`nav${solid ? ' solid' : ''}${visible ? '' : ' hidden'}`}>
-      <Link to="/" className="nav-logo">
+    <nav className={`nav${solid ? ' solid' : ''}${visible ? '' : ' hidden'}`} aria-label="Main">
+      <Link href="/" className="nav-logo" aria-label="MadeBy home">
         MADEBY
       </Link>
       <ul className="nav-links">
         {NAV_LINKS.map(({ num, label, to }) => (
           <li key={num}>
-            <Link to={to} className={`nav-link${pathname === to ? ' active' : ''}`}>
+            <Link href={to} className={`nav-link${isActive(to) ? ' active' : ''}`}>
               <span className="nav-num">{num}</span>
               {label}
             </Link>

@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { Eyebrow, Rule } from '../components/Eyebrow';
 import { Footer } from '../components/Footer';
@@ -6,7 +8,6 @@ import { RGBStrips } from '../components/RGBStrips';
 import { BTS_CELLS, CHAPTERS, TEAM, type TeamMember } from '../data/about';
 import { RGB_COLORS } from '../data/site';
 import { useReveal } from '../hooks/useReveal';
-import '../styles/about.css';
 
 // ── Hero ──────────────────────────────────────────────────────
 function AboutHero() {
@@ -301,10 +302,6 @@ function Team() {
 
 // ── Page ──────────────────────────────────────────────────────
 export default function About() {
-  useEffect(() => {
-    document.title = 'MadeBy — About';
-  }, []);
-
   return (
     <div className="about-page">
       <Nav />

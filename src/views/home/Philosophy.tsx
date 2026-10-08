@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { Eyebrow, Rule } from '../../components/Eyebrow';
 import { revealClass, useReveal } from '../../hooks/useReveal';

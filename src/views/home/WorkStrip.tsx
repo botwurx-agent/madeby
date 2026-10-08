@@ -1,3 +1,6 @@
+'use client';
+
+import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FEATURED_PROJECTS, type Project } from '../../data/projects';
 import { VideoModal } from './VideoModal';
@@ -34,7 +37,14 @@ function FilmCard({ project, onOpen }: { project: Project; onOpen: (p: Project) 
   return (
     <button type="button" className="film-card" onClick={() => onOpen(project)} aria-label={`Play ${project.title} — ${project.client}`}>
       {project.img ? (
-        <img src={project.img} alt="" className="film-card-img" loading="lazy" />
+        <Image
+          src={project.img}
+          alt={`${project.title} — ${project.client} ${project.category.toLowerCase()}`}
+          className="film-card-img"
+          fill
+          sizes="(max-width: 900px) 300px, 480px"
+          placeholder="blur"
+        />
       ) : (
         <div className="film-ph">
           <span className="film-ph-num">PROJECT STILL — {project.id}</span>

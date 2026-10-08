@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 type Phase = 'count' | 'cue' | 'brand' | 'out';

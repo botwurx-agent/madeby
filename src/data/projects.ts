@@ -1,3 +1,4 @@
+import type { StaticImageData } from 'next/image';
 import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
 
@@ -5,12 +6,14 @@ export type Category = 'Commercial' | 'Brand Film' | 'Campaign' | 'Docu-short';
 
 export interface Project {
   id: string;
+  /** URL segment for the project page: /work/<slug> */
+  slug: string;
   title: string;
   client: string;
   category: Category;
   year: string;
   /** Still image. Projects without one render a placeholder. */
-  img?: string;
+  img?: StaticImageData;
   /** Video for the player overlay. Drop an MP4 URL here to activate it. */
   video?: string;
   services: string[];
@@ -22,6 +25,7 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: '01',
+    slug: 'del-taco-big-fat-tacos',
     title: 'BIG FAT TACOS',
     client: 'DEL TACO',
     category: 'Commercial',
@@ -33,6 +37,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '02',
+    slug: 'hint-water-cherry-splash',
     title: 'CHERRY SPLASH',
     client: 'HINT WATER',
     category: 'Commercial',
@@ -44,6 +49,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '03',
+    slug: 'beverage-co-crisp-and-clean',
     title: 'CRISP & CLEAN',
     client: 'BEVERAGE CO.',
     category: 'Campaign',
@@ -54,6 +60,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '04',
+    slug: 'midnight-snack',
     title: 'MIDNIGHT SNACK',
     client: 'FOOD BRAND',
     category: 'Commercial',
@@ -64,6 +71,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '05',
+    slug: 'first-light',
     title: 'FIRST LIGHT',
     client: 'COFFEE LABEL',
     category: 'Brand Film',
@@ -74,6 +82,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '06',
+    slug: 'vineyard-run',
     title: 'VINEYARD RUN',
     client: 'WINE ESTATE',
     category: 'Docu-short',
@@ -84,6 +93,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '07',
+    slug: 'deep-cut',
     title: 'DEEP CUT',
     client: 'CRAFT BEER CO.',
     category: 'Campaign',
@@ -94,6 +104,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '08',
+    slug: 'golden-hour',
     title: 'GOLDEN HOUR',
     client: 'SPIRITS BRAND',
     category: 'Brand Film',
@@ -108,3 +119,9 @@ export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.featured);
 
 export const FILTERS = ['All', 'Commercial', 'Brand Film', 'Campaign', 'Docu-short'] as const;
 export type Filter = (typeof FILTERS)[number];
+
+export const getProject = (slug: string) => PROJECTS.find((p) => p.slug === slug);
+
+/** "Big Fat Tacos" from "BIG FAT TACOS" — for page titles and prose. */
+export const titleCase = (s: string) =>
+  s.toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (_, sep: string, ch: string) => sep + ch.toUpperCase());

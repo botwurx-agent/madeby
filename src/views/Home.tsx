@@ -1,5 +1,6 @@
+'use client';
+
 import { useCallback, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { Nav } from '../components/Nav';
 import { Hero } from './home/Hero';
@@ -8,23 +9,33 @@ import { Marquee } from './home/Marquee';
 import { Philosophy } from './home/Philosophy';
 import { AboutTeaser, Contact, Services } from './home/Sections';
 import { WorkStrip } from './home/WorkStrip';
-import '../styles/home.css';
 
 // The countdown plays once per full page load, not on every client-side
 // visit back to the home page.
 let loaderPlayed = false;
 
 export default function Home() {
-  const { hash } = useLocation();
-  // Deep links (e.g. /#contact) skip the countdown and go straight to the section.
-  const [loaded, setLoaded] = useState(() => loaderPlayed || !!hash);
-  useEffect(() => {
-    document.title = 'MadeBy — We Make Things That Move People';
-  }, []);
+  const [loaded, setLoaded] = useState(() => loaderPlayed);
+
   const finish = useCallback(() => {
     loaderPlayed = true;
     setLoaded(true);
   }, []);
+
+  // Deep links (e.g. /#contact from another page) skip the countdown and jump
+  // to the section once the pinned sections have sized themselves.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    finish();
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [finish]);
 
   return (
     <>

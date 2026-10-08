@@ -14,8 +14,8 @@
   --rgb-green: #00e040;
   --rgb-blue: #1866ff;
 
-  --font-d: 'Bebas Neue', sans-serif;
-  --font-b: 'DM Mono', monospace;
+  --font-d: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-b: var(--font-dm-mono), 'DM Mono', monospace;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --gutter: 40px;

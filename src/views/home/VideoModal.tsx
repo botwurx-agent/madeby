@@ -1,3 +1,5 @@
+'use client';
+
 import type { Project } from '../../data/projects';
 import { RGB_COLORS } from '../../data/site';
 import { useModal } from '../../hooks/useScrollLock';
@@ -31,7 +33,7 @@ export function VideoModal({ project, onClose }: { project: Project; onClose: ()
           </div>
 
           {project.video ? (
-            <video src={project.video} poster={project.img} controls autoPlay playsInline />
+            <video src={project.video} poster={project.img?.src} controls autoPlay playsInline />
           ) : (
             <div className="video-play">
               <div className="play-ring">

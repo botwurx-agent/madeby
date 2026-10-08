@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { RGB_STRIPS } from '../data/site';
 

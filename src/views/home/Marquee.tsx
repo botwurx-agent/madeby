@@ -1,3 +1,5 @@
+'use client';
+
 import { MARQUEE_ITEMS } from '../../data/site';
 
 export function Marquee() {

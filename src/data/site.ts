@@ -66,3 +66,20 @@ export const MARQUEE_ITEMS = [
   '4K Production',
   'Colour Grade',
 ];
+
+export const SITE_NAME = 'MadeBy';
+export const SITE_TAGLINE = 'We Make Things That Move People';
+export const SITE_DESCRIPTION =
+  'MadeBy is a commercial production company for Food & Beverage brands — commercials, brand films and campaigns, from concept to final delivery.';
+
+/**
+ * Public site URL, used for canonical links, the sitemap and share images.
+ * Set NEXT_PUBLIC_SITE_URL once a custom domain is live; until then Vercel's
+ * production URL is used.
+ */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'http://localhost:3000')
+).replace(/\/$/, '');

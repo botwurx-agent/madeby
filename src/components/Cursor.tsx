@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 
 type Mode = 'default' | 'hovering' | 'view' | 'member';
