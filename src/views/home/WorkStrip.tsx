@@ -1,26 +1,30 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { FEATURED_PROJECTS, type Project } from '../../data/projects';
+import { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
+import { FEATURED_PROJECTS, PROJECTS as ALL_PROJECTS, type Project } from '../../data/projects';
 import { VideoModal } from './VideoModal';
 
-const PROJECTS = FEATURED_PROJECTS;
-const TOTAL = String(PROJECTS.length).padStart(2, '0');
+// Top strip: the featured reel, entering from its start. Bottom strip: every
+// project, entering from its far end (it moves the other way), so the two
+// strips never line the same project up.
+const TOP_ROW = FEATURED_PROJECTS;
+const BOTTOM_ROW = ALL_PROJECTS;
+const TOTAL = String(ALL_PROJECTS.length).padStart(2, '0');
 
-// Enough perforations for the widest (desktop) strip; rows clip any excess.
-const NUM_HOLES = Math.ceil((PROJECTS.length * 480 + (PROJECTS.length - 1) * 20 + 160) / 32) + 3;
+// Enough perforations for the widest strip; rows clip any excess.
+const NUM_HOLES = 140;
 const LABEL_EVERY = 8;
 
 /** Perforation row with amber frame codes between hole groups, like 35mm stock. */
-function SprocketRow({ top }: { top: boolean }) {
+function SprocketRow({ labelled, firstFrame }: { labelled: boolean; firstFrame: number }) {
   const items = [];
   for (let i = 0; i < NUM_HOLES; i++) {
     if (i > 0 && i % LABEL_EVERY === 0) {
-      const frame = i / LABEL_EVERY;
+      const frame = firstFrame + i / LABEL_EVERY;
       items.push(
         <span key={`l${i}`} className="sprocket-label">
-          {top ? `MB-${String(frame).padStart(3, '0')}` : frame}
+          {labelled ? `MB-${String(frame).padStart(3, '0')}` : frame}
         </span>,
       );
     }
@@ -42,7 +46,7 @@ function FilmCard({ project, onOpen }: { project: Project; onOpen: (p: Project) 
           alt={`${project.title} — ${project.client} ${project.category.toLowerCase()}`}
           className="film-card-img"
           fill
-          sizes="(max-width: 900px) 300px, 480px"
+          sizes="(max-width: 900px) 320px, 400px"
           placeholder="blur"
         />
       ) : (
@@ -66,47 +70,88 @@ function FilmCard({ project, onOpen }: { project: Project; onOpen: (p: Project) 
   );
 }
 
-/** Horizontal film strip that scrolls sideways while the section is pinned. */
+interface FilmRowProps {
+  projects: Project[];
+  firstFrame: number;
+  label: string;
+  moverRef: RefObject<HTMLDivElement | null>;
+  cardsRef: RefObject<HTMLDivElement | null>;
+  onOpen: (p: Project) => void;
+}
+
+/** One strip of film: sprockets, a row of frames, sprockets. */
+function FilmRow({ projects, firstFrame, label, moverRef, cardsRef, onOpen }: FilmRowProps) {
+  return (
+    <div ref={moverRef} className="film-strip-mover" role="group" aria-label={label}>
+      <SprocketRow labelled firstFrame={firstFrame} />
+      <div ref={cardsRef} className="cards-row">
+        {projects.map((p) => (
+          <FilmCard key={p.id} project={p} onOpen={onOpen} />
+        ))}
+      </div>
+      <SprocketRow labelled={false} firstFrame={firstFrame} />
+    </div>
+  );
+}
+
+/** Width of a strip from its card count, card width, gaps and side padding. */
+function stripWidth(cards: HTMLDivElement, count: number) {
+  const card = cards.firstElementChild as HTMLElement | null;
+  const style = getComputedStyle(cards);
+  return (
+    count * (card?.offsetWidth ?? 0) +
+    (count - 1) * parseFloat(style.columnGap || '0') +
+    parseFloat(style.paddingLeft) +
+    parseFloat(style.paddingRight)
+  );
+}
+
+/**
+ * Two film strips pinned on screen while the section scrolls: the top strip
+ * slides left and the bottom strip slides right.
+ */
 export function WorkStrip() {
   const sectionRef = useRef<HTMLElement>(null);
-  const moverRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
+  const topRef = useRef<HTMLDivElement>(null);
+  const topCardsRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const bottomCardsRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<Project | null>(null);
   const close = useCallback(() => setActive(null), []);
 
   useEffect(() => {
-    let dims = { scrollAmt: 0, sectionH: 0 };
+    let dims = { topTravel: 0, bottomTravel: 0, sectionH: 0 };
 
     const compute = () => {
       const section = sectionRef.current;
-      const mover = moverRef.current;
-      const cards = cardsRef.current;
-      if (!section || !mover || !cards) return;
-      const card = cards.firstElementChild as HTMLElement | null;
-      const style = getComputedStyle(cards);
-      const stripW =
-        PROJECTS.length * (card?.offsetWidth ?? 0) +
-        (PROJECTS.length - 1) * parseFloat(style.columnGap || '0') +
-        parseFloat(style.paddingLeft) +
-        parseFloat(style.paddingRight);
-      mover.style.width = `${stripW}px`;
-      const scrollAmt = Math.max(0, stripW - window.innerWidth);
-      const sectionH = scrollAmt + window.innerHeight * 1.6;
+      const top = topRef.current;
+      const bottom = bottomRef.current;
+      const topCards = topCardsRef.current;
+      const bottomCards = bottomCardsRef.current;
+      if (!section || !top || !bottom || !topCards || !bottomCards) return;
+      const topW = stripWidth(topCards, TOP_ROW.length);
+      const bottomW = stripWidth(bottomCards, BOTTOM_ROW.length);
+      top.style.width = `${topW}px`;
+      bottom.style.width = `${bottomW}px`;
+      const topTravel = Math.max(0, topW - window.innerWidth);
+      const bottomTravel = Math.max(0, bottomW - window.innerWidth);
+      const sectionH = Math.max(topTravel, bottomTravel) + window.innerHeight * 1.6;
       section.style.height = `${sectionH}px`;
-      dims = { scrollAmt, sectionH };
+      dims = { topTravel, bottomTravel, sectionH };
     };
 
     const onScroll = () => {
       const section = sectionRef.current;
-      if (!section || !moverRef.current) return;
+      if (!section || !topRef.current || !bottomRef.current) return;
       const rect = section.getBoundingClientRect();
       const prog = Math.max(0, Math.min(1, -rect.top / Math.max(dims.sectionH - window.innerHeight, 1)));
-      moverRef.current.style.transform = `translate(${-prog * dims.scrollAmt}px, -50%)`;
+      topRef.current.style.transform = `translateX(${-prog * dims.topTravel}px)`;
+      bottomRef.current.style.transform = `translateX(${-(1 - prog) * dims.bottomTravel}px)`;
       if (barRef.current) barRef.current.style.width = `${prog * 100}%`;
       if (counterRef.current) {
-        const n = Math.min(Math.floor(prog * PROJECTS.length) + 1, PROJECTS.length);
+        const n = Math.min(Math.floor(prog * ALL_PROJECTS.length) + 1, ALL_PROJECTS.length);
         counterRef.current.textContent = `${String(n).padStart(2, '0')} / ${TOTAL}`;
       }
     };
@@ -135,14 +180,23 @@ export function WorkStrip() {
           </div>
           <div className="work-strip-code">F-001</div>
 
-          <div ref={moverRef} className="film-strip-mover">
-            <SprocketRow top />
-            <div ref={cardsRef} className="cards-row">
-              {PROJECTS.map((p) => (
-                <FilmCard key={p.id} project={p} onOpen={setActive} />
-              ))}
-            </div>
-            <SprocketRow top={false} />
+          <div className="film-strip-stack">
+            <FilmRow
+              projects={TOP_ROW}
+              firstFrame={0}
+              label="Featured projects"
+              moverRef={topRef}
+              cardsRef={topCardsRef}
+              onOpen={setActive}
+            />
+            <FilmRow
+              projects={BOTTOM_ROW}
+              firstFrame={20}
+              label="More projects"
+              moverRef={bottomRef}
+              cardsRef={bottomCardsRef}
+              onOpen={setActive}
+            />
           </div>
 
           <div className="work-progress">
@@ -150,7 +204,7 @@ export function WorkStrip() {
               <div ref={barRef} className="work-progress-bar" />
             </div>
             <div className="work-progress-labels">
-              <span>DRAG / SCROLL TO EXPLORE</span>
+              <span>SCROLL TO EXPLORE</span>
               <span>F&amp;B · COMMERCIALS · BRAND FILMS</span>
             </div>
           </div>

@@ -324,11 +324,19 @@
   text-transform: uppercase;
   z-index: 10;
 }
-.film-strip-mover {
+.film-strip-stack {
+  /* Card height fits both strips between the header and the progress bar */
+  --card-h: clamp(130px, calc((100vh - 390px) / 2), 300px);
   position: absolute;
-  top: 50%;
+  top: calc(50% - 6px);
   left: 0;
-  transform: translate(0, -50%);
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.film-strip-mover {
   will-change: transform;
   filter: brightness(1.15);
 }
@@ -369,8 +377,8 @@
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  width: 480px;
-  height: 360px;
+  width: calc(var(--card-h) * 4 / 3);
+  height: var(--card-h);
   border: none;
   padding: 0;
   background: none;
@@ -805,10 +813,6 @@
   }
   .services-note {
     text-align: left;
-  }
-  .film-card {
-    width: 300px;
-    height: 225px;
   }
   .cards-row {
     padding: 10px 40px;
