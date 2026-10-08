@@ -3,76 +3,50 @@
 import { useEffect, useRef } from 'react';
 import { Eyebrow, Rule } from '../../components/Eyebrow';
 import { revealClass, useReveal } from '../../hooks/useReveal';
-import { drawSphere, easeInOutCubic, makeScatter } from './sphere';
-
-/** Fraction of the section's scroll at which the sphere is fully assembled. */
-const ASSEMBLED_AT = 0.3;
+import { createLightPath } from './lightPath';
 
 export function Philosophy() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef(0);
   const textVisible = useReveal(textRef, 0.12);
 
-  // Render loop — runs only while the section is on screen.
   useEffect(() => {
     const canvas = canvasRef.current;
     const section = sectionRef.current;
-    const ctx = canvas?.getContext('2d');
-    if (!canvas || !section || !ctx) return;
+    if (!canvas || !section) return;
+    const scene = createLightPath(canvas);
+    if (!scene) return;
 
-    const scatter = makeScatter();
-    let dpr = window.devicePixelRatio || 1;
-    const resize = () => {
-      dpr = window.devicePixelRatio || 1;
-      canvas.width = canvas.offsetWidth * dpr;
-      canvas.height = canvas.offsetHeight * dpr;
+    // Scroll progress through the (taller-than-viewport) section, 0 → 1.
+    const onScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const total = section.offsetHeight - window.innerHeight;
+      scene.setProgress(Math.max(0, Math.min(1, -rect.top / Math.max(total, 1))));
     };
-    resize();
-    window.addEventListener('resize', resize);
+    onScroll();
 
-    let frame = 0;
-    let start: number | null = null;
-    const draw = (ts: number) => {
-      start ??= ts;
-      const assembly = easeInOutCubic(Math.min(1, progressRef.current / ASSEMBLED_AT));
-      drawSphere(ctx, canvas.width, canvas.height, dpr, (ts - start) * 0.001, assembly, scatter);
-      frame = requestAnimationFrame(draw);
-    };
-
+    // Only animate while the section is on screen.
     const io = new IntersectionObserver(([entry]) => {
-      cancelAnimationFrame(frame);
-      if (entry.isIntersecting) frame = requestAnimationFrame(draw);
+      if (entry.isIntersecting) scene.start();
+      else scene.stop();
     });
     io.observe(section);
 
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', scene.resize);
     return () => {
       io.disconnect();
-      cancelAnimationFrame(frame);
-      window.removeEventListener('resize', resize);
+      scene.stop();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', scene.resize);
     };
-  }, []);
-
-  // Scroll progress through the (taller-than-viewport) section, 0 → 1.
-  useEffect(() => {
-    const onScroll = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const total = section.offsetHeight - window.innerHeight;
-      progressRef.current = Math.max(0, Math.min(1, -rect.top / Math.max(total, 1)));
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <section ref={sectionRef} id="philosophy" className="philosophy">
       <div className="philosophy-sticky">
         <canvas ref={canvasRef} className="philosophy-canvas" aria-hidden="true" />
-        <div className="philosophy-vignette" />
 
         <div ref={textRef} className="philosophy-text">
           <Eyebrow className={revealClass(textVisible)} style={{ marginBottom: 28 }}>
@@ -101,7 +75,7 @@ export function Philosophy() {
         </div>
 
         <div className="philosophy-caption">
-          Scroll to assemble
+          Scroll to follow the light
           <br />
           MB-001 · The Craft
         </div>

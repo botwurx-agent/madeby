@@ -195,10 +195,10 @@
   color: var(--accent);
 }
 
-/* ═══ Philosophy ═══════════════════════════════════ */
+/* ═══ Philosophy (light path) ════════════════════════ */
 .philosophy {
   position: relative;
-  height: 230vh;
+  height: 320vh;
   border-top: 1px solid var(--border);
 }
 .philosophy-sticky {
@@ -206,23 +206,13 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
+  background: radial-gradient(120% 90% at 30% 0%, #1b1c20 0%, #0d0e12 45%, #08090c 100%);
 }
 .philosophy-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-}
-.philosophy-vignette {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(12, 10, 8, 0.15) 0%,
-    rgba(12, 10, 8, 0.55) 70%,
-    rgba(12, 10, 8, 0.85) 100%
-  );
 }
 .philosophy-text {
   position: absolute;
@@ -235,19 +225,34 @@
   z-index: 2;
   padding: 0 80px;
 }
+/* Soft dark patch behind the copy so it stays readable when the light passes */
+.philosophy-text::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: min(760px, 100%);
+  height: 70%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(8, 9, 12, 0.62), rgba(8, 9, 12, 0));
+  pointer-events: none;
+}
 .philosophy-title {
   font-family: var(--font-d);
   font-size: clamp(52px, 7vw, 110px);
   line-height: 0.88;
   color: var(--text);
   margin-bottom: 36px;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
 }
 .philosophy-body {
   font-family: var(--font-b);
   font-size: 13px;
-  color: var(--muted);
+  color: #9a917f;
   line-height: 2;
   max-width: 520px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
 }
 .philosophy-body p + p {
   margin-top: 18px;
@@ -255,7 +260,8 @@
 .philosophy-quote {
   margin-top: 44px;
   padding: 18px 32px;
-  border: 1px solid var(--accent-line);
+  border: 1px solid rgba(255, 183, 0, 0.22);
+  background: rgba(10, 11, 14, 0.35);
   display: inline-block;
   font-family: var(--font-d);
   font-size: 20px;
