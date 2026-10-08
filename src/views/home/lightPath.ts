@@ -58,12 +58,19 @@ function bokehSprite([r, g, b]: RGB) {
   return c;
 }
 
-/** Centre line of the band in 3D: near on the left, receding to the right. */
+/**
+ * Centre line of the band in 3D: near on the left, receding to the right.
+ * The far end sweeps wide enough that the tail runs off the right edge.
+ */
 const path = (t: number): [number, number, number] => [
-  -1.55 + 3.4 * t,
+  -1.55 + 3.4 * t + 2.2 * t * t,
   0.42 - 0.5 * t + 0.11 * Math.sin(t * Math.PI * 2 + 0.6),
-  0.15 + 1.9 * t,
+  0.15 + 1.5 * t,
 ];
+
+/** Where the light starts and stops along the path (0–1). */
+const LIGHT_FROM = 0.1;
+const LIGHT_TO = 0.78;
 
 const gauss = () => {
   let u = 0;
@@ -235,7 +242,7 @@ export function createLightPath(canvas: HTMLCanvasElement): LightPath | null {
     };
 
     // The light rides the path with scroll
-    const L = path(0.1 + smooth * 0.84);
+    const L = path(LIGHT_FROM + smooth * (LIGHT_TO - LIGHT_FROM));
     const [lx, ly, ls] = project(L[0], L[1], L[2]);
     const lightR = scale * 0.42 * (0.55 + ls * 0.6);
 
@@ -259,7 +266,7 @@ export function createLightPath(canvas: HTMLCanvasElement): LightPath | null {
         c.drawImage(bokeh[p.tint], x - size / 2, y - size / 2, size, size);
         continue;
       }
-      const fade = Math.min(1, Math.max(0, (s - 0.2) * 1.6)); // far end fades into haze
+      const fade = Math.min(1, Math.max(0, (s - 0.12) * 2.5)); // far end fades into haze
       const a = Math.min(1, (p.base * tw + lit * 1.1 * (0.5 + 0.5 * tw)) * fade);
       if (a < 0.02) continue;
       const size = (p.size + lit * 2.4) * dpr * s * 7;
