@@ -1,6 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef } from 'react';
+import onSetPhoto from '../../assets/about-on-set.webp';
 import { Eyebrow, Rule } from '../../components/Eyebrow';
 import { revealClass, useReveal } from '../../hooks/useReveal';
 import { CONTACT_EMAIL, SERVICES, STATS } from '../../data/site';
@@ -47,13 +49,16 @@ export function AboutTeaser() {
         </div>
       </div>
 
-      <div className={revealClass(vis, 'reveal-d2')}>
-        <div className="ph" style={{ aspectRatio: '3 / 4' }}>
-          <div className="ph-label">
-            <span>Team / Behind the scenes</span>
-          </div>
-        </div>
-      </div>
+      <figure className={`about-photo ${revealClass(vis, 'reveal-d2')}`}>
+        <Image
+          src={onSetPhoto}
+          alt="The MadeBy crew on set in the studio, posing with Darth Vader"
+          fill
+          sizes="(max-width: 900px) 100vw, 50vw"
+          placeholder="blur"
+        />
+        <figcaption className="about-photo-caption">MB · BTS · On set</figcaption>
+      </figure>
     </section>
   );
 }
