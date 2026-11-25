@@ -1,6 +1,7 @@
 import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
 import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
+import caliSqueeze from '../assets/projects/cali-squeeze.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
@@ -115,6 +116,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/del-dorado-chicken.mp4',
     services: ['Direction', 'Production', 'Tabletop'],
     desc: 'Menu launch for Del Taco’s new Del Dorado Chicken. A therapy session that turns into a dance party, then pure tabletop: the sauce pour, the cheese pull and the chicken drop. Shot on a green-screen stage.',
+    featured: true,
+  },
+  {
+    id: 'cali-squeeze',
+    title: 'Blood Orange',
+    client: 'Cali Squeeze',
+    category: 'Social',
+    year: '2026',
+    img: caliSqueeze,
+    video: '/media/work/cali-squeeze-loop.mp4',
+    full: '/media/work/cali-squeeze.mp4',
+    services: ['Direction', 'Tabletop', 'High-Speed'],
+    desc: 'Fifteen-second social spot for Cali Squeeze Blood Orange. Real fruit, real beer: the crack, the splash, the pour and the overflow, shot macro against saturated red.',
     featured: true,
   },
   {

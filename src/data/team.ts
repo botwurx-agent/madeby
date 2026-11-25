@@ -33,7 +33,7 @@ export const TEAM: TeamMember[] = [
     roles: ['Executive Producer', 'Client Strategy', 'Logistics'],
     short: 'The reason shoots land on time and on budget without feeling like a compromise.',
     bio: 'Fred is the reason MadeBy shoots run on time and on budget without ever feeling like a compromise. A former line producer turned EP, he knows what a shoot needs before anyone else in the room does. The creative always comes first.',
-    work: ['treat-yourself', 'cosori-juni', 'hydrascience', 'poppi-cherry-cola', 'cherry-splash', 'crisp-and-clean', 'cold-brew', 'the-pour', 'fizz', 'harvest'],
+    work: ['treat-yourself', 'cosori-juni', 'hydrascience', 'poppi-cherry-cola', 'cali-squeeze', 'cherry-splash', 'crisp-and-clean', 'cold-brew', 'the-pour', 'fizz', 'harvest'],
   },
   {
     id: 'greg',
@@ -42,6 +42,6 @@ export const TEAM: TeamMember[] = [
     roles: ['Lighting', 'Electrical', 'Camera Support'],
     short: 'Has lit every MadeBy set since day one. Economical, intentional, always beautiful.',
     bio: 'Greg has lit every MadeBy set since day one. Trained under a DP known for practical-only lighting, his setups are economical, intentional and always beautiful. He turns whatever a location gives him into something that looks like it was always the plan.',
-    work: ['del-dorado-chicken', 'all-american-burgers', 'hydrascience', 'poppi-cherry-cola', 'steam', 'midnight-snack', 'cherry-splash', 'golden-hour', 'vineyard-run', 'slice'],
+    work: ['del-dorado-chicken', 'all-american-burgers', 'hydrascience', 'poppi-cherry-cola', 'cali-squeeze', 'steam', 'midnight-snack', 'cherry-splash', 'golden-hour', 'vineyard-run', 'slice'],
   },
 ];
