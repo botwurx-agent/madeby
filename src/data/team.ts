@@ -24,7 +24,7 @@ export const TEAM: TeamMember[] = [
     roles: ['Director', 'Producer', 'Senior Operator'],
     short: 'A decade of agency life, then a decision to only make films he believes in.',
     bio: "Steve spent ten years in agency life before walking away to make films he actually believed in. His background in fine art photography shapes every MadeBy frame — the geometry, the quality of light, the decisive moment. On set, Steve is quiet until something is wrong.",
-    work: ['big-fat-tacos', 'treat-yourself', 'all-american-burgers', 'cosori-juni', 'first-light', 'golden-hour', 'midnight-snack', 'sunday-bake', 'deep-cut'],
+    work: ['big-fat-tacos', 'del-dorado-chicken', 'treat-yourself', 'all-american-burgers', 'cosori-juni', 'first-light', 'golden-hour', 'midnight-snack', 'sunday-bake', 'deep-cut'],
   },
   {
     id: 'fred',
@@ -42,6 +42,6 @@ export const TEAM: TeamMember[] = [
     roles: ['Lighting', 'Electrical', 'Camera Support'],
     short: 'Has lit every MadeBy set since day one. Economical, intentional, always beautiful.',
     bio: 'Greg has lit every MadeBy set since day one. Trained under a DP known for practical-only lighting, his setups are economical, intentional and always beautiful. He turns whatever a location gives him into something that looks like it was always the plan.',
-    work: ['all-american-burgers', 'hydrascience', 'poppi-cherry-cola', 'steam', 'midnight-snack', 'cherry-splash', 'golden-hour', 'vineyard-run', 'slice'],
+    work: ['del-dorado-chicken', 'all-american-burgers', 'hydrascience', 'poppi-cherry-cola', 'steam', 'midnight-snack', 'cherry-splash', 'golden-hour', 'vineyard-run', 'slice'],
   },
 ];

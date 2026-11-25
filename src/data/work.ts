@@ -2,6 +2,7 @@ import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
 import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
+import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
 import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
@@ -101,6 +102,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/poppi-cherry-cola.mp4',
     services: ['Direction', 'High-Speed', 'Graphic Animation'],
     desc: 'Twenty seconds of cherry-red excess for Poppi Cherry Cola. Splash, crush and pour in saturated pinks and reds, cut fast with bold animated type. Here to serve taste.',
+    featured: true,
+  },
+  {
+    id: 'del-dorado-chicken',
+    title: 'Del Dorado Chicken',
+    client: 'Del Taco',
+    category: 'Commercial',
+    year: '2025',
+    img: delDoradoChicken,
+    video: '/media/work/del-dorado-chicken-loop.mp4',
+    full: '/media/work/del-dorado-chicken.mp4',
+    services: ['Direction', 'Production', 'Tabletop'],
+    desc: 'Menu launch for Del Taco’s new Del Dorado Chicken. A therapy session that turns into a dance party, then pure tabletop: the sauce pour, the cheese pull and the chicken drop. Shot on a green-screen stage.',
     featured: true,
   },
   {
