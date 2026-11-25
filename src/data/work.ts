@@ -5,6 +5,7 @@ import caliSqueeze from '../assets/projects/cali-squeeze.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
+import mezcla from '../assets/projects/mezcla.webp';
 import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
@@ -129,6 +130,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/cali-squeeze.mp4',
     services: ['Direction', 'Tabletop', 'High-Speed'],
     desc: 'Fifteen-second social spot for Cali Squeeze Blood Orange. Real fruit, real beer: the crack, the splash, the pour and the overflow, shot macro against saturated red.',
+    featured: true,
+  },
+  {
+    id: 'mezcla',
+    title: 'Puff-Crispy Bars',
+    client: 'Mezcla',
+    category: 'Commercial',
+    year: '2026',
+    img: mezcla,
+    video: '/media/work/mezcla-loop.mp4',
+    full: '/media/work/mezcla.mp4',
+    services: ['Direction', 'Live Action', 'Color Grade'],
+    desc: 'Sun-soaked lifestyle spot for Mezcla Puff-Crispy Bars. Poolside, courtside and top-down in a convertible — a light, crispy protein bar that fits wherever the day goes.',
     featured: true,
   },
   {

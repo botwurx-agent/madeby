@@ -24,7 +24,7 @@ export const TEAM: TeamMember[] = [
     roles: ['Director', 'Producer', 'Senior Operator'],
     short: 'A decade of agency life, then a decision to only make films he believes in.',
     bio: "Steve spent ten years in agency life before walking away to make films he actually believed in. His background in fine art photography shapes every MadeBy frame — the geometry, the quality of light, the decisive moment. On set, Steve is quiet until something is wrong.",
-    work: ['big-fat-tacos', 'del-dorado-chicken', 'treat-yourself', 'all-american-burgers', 'cosori-juni', 'first-light', 'golden-hour', 'midnight-snack', 'sunday-bake', 'deep-cut'],
+    work: ['big-fat-tacos', 'del-dorado-chicken', 'treat-yourself', 'all-american-burgers', 'cosori-juni', 'mezcla', 'first-light', 'golden-hour', 'midnight-snack', 'sunday-bake', 'deep-cut'],
   },
   {
     id: 'fred',
@@ -33,7 +33,7 @@ export const TEAM: TeamMember[] = [
     roles: ['Executive Producer', 'Client Strategy', 'Logistics'],
     short: 'The reason shoots land on time and on budget without feeling like a compromise.',
     bio: 'Fred is the reason MadeBy shoots run on time and on budget without ever feeling like a compromise. A former line producer turned EP, he knows what a shoot needs before anyone else in the room does. The creative always comes first.',
-    work: ['treat-yourself', 'cosori-juni', 'hydrascience', 'poppi-cherry-cola', 'cali-squeeze', 'cherry-splash', 'crisp-and-clean', 'cold-brew', 'the-pour', 'fizz', 'harvest'],
+    work: ['treat-yourself', 'cosori-juni', 'hydrascience', 'poppi-cherry-cola', 'cali-squeeze', 'mezcla', 'cherry-splash', 'crisp-and-clean', 'cold-brew', 'the-pour', 'fizz', 'harvest'],
   },
   {
     id: 'greg',
