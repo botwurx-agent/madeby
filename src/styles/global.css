@@ -1293,6 +1293,82 @@ body:has(.hero) .nav {
   background: #111;
 }
 
+/* Vertical footage: same height as the landscape cards, 9:16. */
+.bts-card.is-portrait {
+  flex-basis: calc(var(--card) * 0.75 * 9 / 16);
+}
+
+.bts-card.is-portrait .bts-frame {
+  aspect-ratio: 9 / 16;
+}
+
+.bts-open {
+  display: block;
+  width: 100%;
+}
+
+.bts-play {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding-left: 2px;
+  font-size: 11px;
+  color: var(--fg);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.bts-open:hover .bts-play {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #000;
+}
+
+/* Behind-the-scenes viewer */
+.bts-viewer {
+  width: min(100%, 960px);
+  padding: 0;
+}
+
+.bts-viewer.is-portrait {
+  width: min(100%, calc((100svh - 13rem) * 9 / 16));
+}
+
+.bts-viewer-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.bts-viewer.is-portrait .bts-viewer-frame {
+  aspect-ratio: 9 / 16;
+}
+
+.bts-viewer-cap {
+  padding: 1rem 1.25rem 1.15rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.bts-viewer-cap span {
+  color: var(--orange);
+  margin-right: 0.6em;
+}
+
 .bts-frame .media-ph-label {
   display: none;
 }

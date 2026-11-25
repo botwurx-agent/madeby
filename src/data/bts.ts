@@ -1,18 +1,29 @@
+import delTacoBts from '../assets/bts-del-taco.webp';
 import onSet from '../assets/about-on-set.webp';
 import project01 from '../assets/projects/project-01.webp';
-import project02 from '../assets/projects/project-02.webp';
 import type { MediaSource } from './media';
 
 export interface BtsShot extends MediaSource {
   caption: string;
+  /** Vertical (9:16) footage gets a tall card. */
+  portrait?: boolean;
 }
 
-/** Behind-the-scenes carousel under the ethos statement. */
+/**
+ * Behind-the-scenes carousel under the ethos statement. The carousel opens on
+ * the middle entry. Entries with `full` open a viewer with sound when clicked.
+ */
 export const BTS: BtsShot[] = [
-  { caption: 'Lighting the pour', img: project02 },
   { caption: 'Tabletop, day two' },
-  { caption: 'On set, Los Angeles', img: onSet },
-  { caption: 'Phantom at 1,000fps' },
   { caption: 'Hero plate', img: project01 },
+  { caption: 'On set, Los Angeles', img: onSet },
+  {
+    caption: 'Del Taco — Del Dorado Chicken',
+    img: delTacoBts,
+    video: '/media/bts/del-taco-bts-loop.mp4',
+    full: '/media/bts/del-taco-bts.mp4',
+    portrait: true,
+  },
+  { caption: 'Phantom at 1,000fps' },
   { caption: 'Color session' },
 ];

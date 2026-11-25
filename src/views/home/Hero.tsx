@@ -2,14 +2,14 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import onSet from '../../assets/about-on-set.webp';
+import allAmericanBurgers from '../../assets/projects/all-american-burgers.webp';
+import hydrascience from '../../assets/projects/hydrascience.webp';
 import project01 from '../../assets/projects/project-01.webp';
-import project02 from '../../assets/projects/project-02.webp';
 import { HERO_VIDEO, SITE_TAGLINE } from '../../data/site';
 import { useTimecode } from '../../lib/hooks';
 
 /** Crossfaded while HERO_VIDEO is empty. */
-const STILLS = [project01, project02, onSet];
+const STILLS = [project01, allAmericanBurgers, hydrascience];
 
 /**
  * 1A — brand video. Opens like a shutter from a thin orange line, then eases
