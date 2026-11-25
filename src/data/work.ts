@@ -1,5 +1,6 @@
 import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
+import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
 
 export const CATEGORIES = ['Commercial', 'Brand Film', 'Campaign', 'Social'] as const;
@@ -29,6 +30,19 @@ export const WORK: WorkSample[] = [
     full: '/media/work/big-fat-tacos.mp4',
     services: ['Direction', 'Production', 'Color Grade'],
     desc: "Summer menu campaign for Del Taco. Three days on location with a 20-person crew — bold, bright and unapologetically indulgent.",
+    featured: true,
+  },
+  {
+    id: 'treat-yourself',
+    title: 'Treat Yourself',
+    client: 'Hint',
+    category: 'Commercial',
+    year: '2026',
+    img: treatYourself,
+    video: '/media/work/treat-yourself-loop.mp4',
+    full: '/media/work/treat-yourself.mp4',
+    services: ['Direction', 'Production', 'Post'],
+    desc: "Launch spot for Hint's Treat Yourself variety pack. A dreamlike world for every flavor — strawberry cupcake, berry cobbler, pineapple whip and key lime pie. Tastes like dessert, hydrates like water.",
     featured: true,
   },
   {
