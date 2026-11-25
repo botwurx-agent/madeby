@@ -3,6 +3,7 @@ import project02 from '../assets/projects/project-02.webp';
 import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
+import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
 
@@ -87,6 +88,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/hydrascience.mp4',
     services: ['Direction', 'High-Speed', 'Post'],
     desc: 'Liquid I.V. Hydration Multiplier: transform ordinary water into extraordinary hydration. High-speed liquid and powder work built around one move — tear, pour, hydrate.',
+    featured: true,
+  },
+  {
+    id: 'poppi-cherry-cola',
+    title: 'Cherry Cola',
+    client: 'Poppi',
+    category: 'Commercial',
+    year: '2024',
+    img: poppiCherryCola,
+    video: '/media/work/poppi-cherry-cola-loop.mp4',
+    full: '/media/work/poppi-cherry-cola.mp4',
+    services: ['Direction', 'High-Speed', 'Graphic Animation'],
+    desc: 'Twenty seconds of cherry-red excess for Poppi Cherry Cola. Splash, crush and pour in saturated pinks and reds, cut fast with bold animated type. Here to serve taste.',
     featured: true,
   },
   {
