@@ -1,6 +1,7 @@
 import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
 import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
+import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
@@ -60,6 +61,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/all-american-burgers.mp4',
     services: ['Direction', 'Tabletop', 'Post'],
     desc: "Launch spot for Wienerschnitzel's new All-American Burgers — Deluxe, Chili Cheese and Jalapeño BBQ Bacon. Bright, clean tabletop with a stars-and-stripes ribbon running through every shot.",
+    featured: true,
+  },
+  {
+    id: 'cosori-juni',
+    title: 'Juni Launch',
+    client: 'Cosori',
+    category: 'Commercial',
+    year: '2026',
+    img: cosoriJuni,
+    video: '/media/work/cosori-juni-loop.mp4',
+    full: '/media/work/cosori-juni.mp4',
+    services: ['Direction', 'Production', 'Color Grade'],
+    desc: 'Launch film for Juni, Cosori’s automated pour-over machine. Warm, slow, macro-led — from the bloom to the final brew, the ritual of pour-over at the push of a button.',
     featured: true,
   },
   {

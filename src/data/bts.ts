@@ -1,6 +1,5 @@
 import delTacoBts from '../assets/bts-del-taco.webp';
 import onSet from '../assets/about-on-set.webp';
-import project01 from '../assets/projects/project-01.webp';
 import type { MediaSource } from './media';
 
 export interface BtsShot extends MediaSource {
@@ -15,7 +14,6 @@ export interface BtsShot extends MediaSource {
  */
 export const BTS: BtsShot[] = [
   { caption: 'Tabletop, day two' },
-  { caption: 'Hero plate', img: project01 },
   { caption: 'On set, Los Angeles', img: onSet },
   {
     caption: 'Del Taco — Del Dorado Chicken',
