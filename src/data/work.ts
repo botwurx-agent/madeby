@@ -1,5 +1,6 @@
 import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
+import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
 
@@ -43,6 +44,19 @@ export const WORK: WorkSample[] = [
     full: '/media/work/treat-yourself.mp4',
     services: ['Direction', 'Production', 'Post'],
     desc: "Launch spot for Hint's Treat Yourself variety pack. A dreamlike world for every flavor — strawberry cupcake, berry cobbler, pineapple whip and key lime pie. Tastes like dessert, hydrates like water.",
+    featured: true,
+  },
+  {
+    id: 'all-american-burgers',
+    title: 'All-American Burgers',
+    client: 'Wienerschnitzel',
+    category: 'Commercial',
+    year: '2025',
+    img: allAmericanBurgers,
+    video: '/media/work/all-american-burgers-loop.mp4',
+    full: '/media/work/all-american-burgers.mp4',
+    services: ['Direction', 'Tabletop', 'Post'],
+    desc: "Launch spot for Wienerschnitzel's new All-American Burgers — Deluxe, Chili Cheese and Jalapeño BBQ Bacon. Bright, clean tabletop with a stars-and-stripes ribbon running through every shot.",
     featured: true,
   },
   {
