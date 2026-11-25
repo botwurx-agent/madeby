@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0c0a08"/>
-  <rect x="5" y="7" width="2" height="18" fill="#ff2020"/>
-  <rect x="9" y="7" width="2" height="18" fill="#00e040"/>
-  <rect x="13" y="7" width="2" height="18" fill="#1866ff"/>
-  <circle cx="23" cy="22" r="3" fill="#ffb700"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#000"/><text x="13" y="45" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="34" fill="#f4f4f2">M</text><circle cx="49" cy="26" r="4" fill="#ff5b04"/><circle cx="49" cy="40" r="4" fill="#ff5b04"/></svg>

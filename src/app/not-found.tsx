@@ -1,27 +1,17 @@
 import Link from 'next/link';
-import { Footer } from '../components/Footer';
-import { Nav } from '../components/Nav';
 
 export default function NotFound() {
   return (
-    <>
-      <Nav />
-      <main className="home-section contact" style={{ minHeight: '80vh', justifyContent: 'center', borderTop: 'none' }}>
-        <div className="eyebrow" style={{ marginBottom: 32 }}>
-          <span className="eyebrow-line" />
-          MB-404 · Frame not found
-          <span className="eyebrow-line" />
-        </div>
-        <h1 className="contact-title">
-          LOST THE
-          <br />
-          SHOT<span className="accent">.</span>
-        </h1>
-        <Link href="/" className="contact-email">
-          Back to the start
-        </Link>
-      </main>
-      <Footer />
-    </>
+    <main className="section notfound">
+      <p className="eyebrow">
+        <span className="eyebrow-num">(404)</span> Frame not found
+      </p>
+      <h1 className="section-title">
+        Lost the shot<span className="accent">.</span>
+      </h1>
+      <Link href="/" className="more-link">
+        Back to the start <span aria-hidden="true">&gt;&gt;</span>
+      </Link>
+    </main>
   );
 }

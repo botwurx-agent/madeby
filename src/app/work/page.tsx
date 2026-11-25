@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
-import Work from '../../views/Work';
+import WorkPage from '../../views/WorkPage';
 
 export const metadata: Metadata = {
-  title: 'The Work',
-  description:
-    'Selected commercials, brand films and campaigns for food and beverage brands including Del Taco and Hint Water.',
+  title: 'Work samples',
+  description: 'Commercials, brand films, campaigns and social content for food and beverage brands.',
   alternates: { canonical: '/work' },
   openGraph: { url: '/work' },
 };
 
-export default function WorkPage() {
-  return <Work />;
+export default function Page() {
+  return <WorkPage />;
 }

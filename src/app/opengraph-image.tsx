@@ -1,5 +1,3 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 import { SITE_NAME, SITE_TAGLINE } from '../data/site';
 
@@ -7,12 +5,8 @@ export const alt = `${SITE_NAME} — ${SITE_TAGLINE}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-/** Default share image (link previews) for every page without its own. */
-export default async function OpengraphImage() {
-  const bebas = await readFile(
-    join(process.cwd(), 'node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff'),
-  );
-
+/** Default share image (link previews). */
+export default function OpengraphImage() {
   return new ImageResponse(
     (
       <div
@@ -22,32 +16,23 @@ export default async function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: 64,
-          background: 'radial-gradient(ellipse at 60% 40%, #1c1508 0%, #0c0a08 65%)',
-          color: '#ece5cf',
-          fontFamily: 'Bebas',
+          padding: 72,
+          background: '#000',
+          color: '#f4f4f2',
         }}
       >
-        <div style={{ display: 'flex', fontSize: 40, letterSpacing: 8 }}>MADEBY</div>
-        <div style={{ display: 'flex', alignItems: 'stretch', gap: 28 }}>
-          <div style={{ display: 'flex', gap: 9 }}>
-            {['#ff2020', '#00e040', '#1866ff'].map((c) => (
-              <div key={c} style={{ width: 7, background: c, borderRadius: 3 }} />
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', fontSize: 132, lineHeight: 0.87 }}>
-            <div>WE MAKE THINGS</div>
-            <div>THAT MOVE</div>
-            <div style={{ display: 'flex' }}>
-              PEOPLE<span style={{ color: '#ffb700' }}>.</span>
-            </div>
+        <div style={{ display: 'flex', fontSize: 36, fontWeight: 600, letterSpacing: -1 }}>
+          MADEBY<span style={{ color: '#ff5b04' }}>:</span>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', fontSize: 92, fontWeight: 500, lineHeight: 1, letterSpacing: -4 }}>
+          <div>Commercial production</div>
+          <div style={{ display: 'flex' }}>
+            for food &amp; beverage<span style={{ color: '#ff5b04' }}>.</span>
           </div>
         </div>
-        <div style={{ display: 'flex', fontSize: 26, letterSpacing: 6, color: '#8a8070' }}>
-          COMMERCIAL PRODUCTION · FOOD &amp; BEVERAGE
-        </div>
+        <div style={{ display: 'flex', height: 2, width: 160, background: '#ff5b04' }} />
       </div>
     ),
-    { ...size, fonts: [{ name: 'Bebas', data: bebas, style: 'normal', weight: 400 }] },
+    size,
   );
 }

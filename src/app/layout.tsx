@@ -1,22 +1,14 @@
 import type { Metadata, Viewport } from 'next';
-import { Bebas_Neue, DM_Mono } from 'next/font/google';
+import { Geist_Mono, Inter_Tight } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { Cursor } from '../components/Cursor';
-import { GrainCanvas } from '../components/GrainCanvas';
+import { CursorLabel } from '../components/CursorLabel';
+import { Footer } from '../components/Footer';
+import { Nav } from '../components/Nav';
 import { CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL, SOCIAL_LINKS } from '../data/site';
 import '../styles/global.css';
-import '../styles/home.css';
-import '../styles/work.css';
-import '../styles/about.css';
 
-const bebas = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas', display: 'swap' });
-const dmMono = DM_Mono({
-  weight: ['300', '400', '500'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  variable: '--font-dm-mono',
-  display: 'swap',
-});
+const sans = Inter_Tight({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
+const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +23,7 @@ export const metadata: Metadata = {
     'food and beverage commercials',
     'food commercial production',
     'beverage commercial production',
-    'brand films',
+    'tabletop production',
     'food videography',
     'Los Angeles production company',
   ],
@@ -48,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0c0a08',
+  themeColor: '#000000',
 };
 
 const organizationJsonLd = {
@@ -59,17 +51,21 @@ const organizationJsonLd = {
   logo: `${SITE_URL}/icon.svg`,
   description: SITE_DESCRIPTION,
   email: CONTACT_EMAIL,
-  sameAs: SOCIAL_LINKS.map((l) => l.href).filter((href) => href.startsWith('http')),
+  sameAs: SOCIAL_LINKS.map((l) => l.href),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${bebas.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
-        <GrainCanvas opacity={0.03} />
-        <Cursor />
-        {children}
+        <a href="#main" className="skip">
+          Skip to content
+        </a>
+        <Nav />
+        <div id="main">{children}</div>
+        <Footer />
+        <CursorLabel />
       </body>
     </html>
   );

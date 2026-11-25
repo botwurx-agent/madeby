@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  // Pages from the previous version of the site.
+  async redirects() {
+    return [
+      { source: '/about', destination: '/#about', permanent: true },
+      { source: '/work/:slug', destination: '/work', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

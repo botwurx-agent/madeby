@@ -1,76 +1,40 @@
-export const RGB_STRIPS = [
-  { color: '#ff2020', delay: 0, parallax: -0.14 },
-  { color: '#00e040', delay: 0.11, parallax: -0.07 },
-  { color: '#1866ff', delay: 0.22, parallax: -0.01 },
-] as const;
-
-export const RGB_COLORS = RGB_STRIPS.map((s) => s.color);
-
 export interface NavLink {
-  num: string;
   label: string;
   /** Route path, or `/#id` for a section on the home page. */
   to: string;
+  /** Home-page section ids that light this link up while in view. */
+  sections: string[];
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { num: 'F-001', label: 'The Work', to: '/work' },
-  { num: 'F-002', label: 'About', to: '/about' },
-  { num: 'F-003', label: 'Services', to: '/#services' },
-  { num: 'F-004', label: 'Contact', to: '/#contact' },
+  { label: 'Work', to: '/#work', sections: ['work'] },
+  { label: 'About Us', to: '/#about', sections: ['about', 'ethos', 'services'] },
+  { label: 'Contact', to: '/#contact', sections: ['contact'] },
 ];
 
+/** Where the pulsing "Live" link in the nav goes (a stream, Instagram live, a BTS feed…). */
+export const LIVE_URL = 'https://instagram.com';
+
 export const SOCIAL_LINKS = [
-  { label: 'Instagram', href: '#' },
-  { label: 'Vimeo', href: '#' },
-  { label: 'LinkedIn', href: '#' },
+  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'Vimeo', href: 'https://vimeo.com' },
+  { label: 'LinkedIn', href: 'https://linkedin.com' },
 ];
 
 export const CONTACT_EMAIL = 'hello@madeby.studio';
 
-export const SERVICES = [
-  {
-    num: '01',
-    title: 'Pre-Production',
-    desc: 'Concept development, scripting, storyboarding, location scouting, casting, and full shoot prep.',
-  },
-  {
-    num: '02',
-    title: 'Production',
-    desc: 'Full crew, premium camera packages, on-set direction and creative leadership from day one.',
-  },
-  {
-    num: '03',
-    title: 'Post-Production',
-    desc: 'Edit, colour grade, sound design, VFX, music licensing, and multi-platform delivery.',
-  },
-  {
-    num: '04',
-    title: 'Creative Strategy',
-    desc: 'Brand story development, campaign architecture, audience targeting, and platform specifications.',
-  },
-];
+/** Brand film in the hero. Drop an MP4 URL (or /public path) here; stills crossfade until then. */
+export const HERO_VIDEO: string | undefined = undefined;
 
-export const STATS = [
-  ['40+', 'Projects Delivered'],
-  ['8', 'Years on Set'],
-  ['3', 'Continents'],
-] as const;
-
-export const MARQUEE_ITEMS = [
-  'Food & Beverage',
-  'Brand Films',
-  'Commercials',
-  'Award-Winning',
-  'Creative Direction',
-  '4K Production',
-  'Colour Grade',
-];
+export const ETHOS =
+  'We are filmmakers who live on set. We obsess over the frame — the light, the pour, the steam, the split second — so food & beverage brands get work that looks as good as it tastes.';
+/** The closing phrase of ETHOS, which settles in orange once the reader scrolls past it. */
+export const ETHOS_ACCENT = 'as good as it tastes.';
 
 export const SITE_NAME = 'MadeBy';
-export const SITE_TAGLINE = 'We Make Things That Move People';
+export const SITE_TAGLINE = 'Commercial production for food & beverage';
 export const SITE_DESCRIPTION =
-  'MadeBy is a commercial production company for Food & Beverage brands — commercials, brand films and campaigns, from concept to final delivery.';
+  'MadeBy is a commercial production company for food & beverage brands — pre-production, production and post, from first storyboard to final delivery.';
 
 /**
  * Public site URL, used for canonical links, the sitemap and share images.
