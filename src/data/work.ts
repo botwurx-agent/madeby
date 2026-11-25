@@ -25,6 +25,8 @@ export const WORK: WorkSample[] = [
     category: 'Commercial',
     year: '2024',
     img: project01,
+    video: '/media/work/big-fat-tacos-loop.mp4',
+    full: '/media/work/big-fat-tacos.mp4',
     services: ['Direction', 'Production', 'Color Grade'],
     desc: "Summer menu campaign for Del Taco. Three days on location with a 20-person crew — bold, bright and unapologetically indulgent.",
     featured: true,

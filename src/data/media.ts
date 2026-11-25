@@ -7,6 +7,8 @@ import type { StaticImageData } from 'next/image';
  */
 export interface MediaSource {
   img?: StaticImageData;
-  /** MP4 URL or a path in /public, e.g. "/work/cherry-splash.mp4". Loops muted. */
+  /** Short MP4 loop (URL or a path in /public, e.g. "/media/work/cherry-splash-loop.mp4"). Plays muted on hover. */
   video?: string;
+  /** Full-length MP4 with sound, played in the viewer. Falls back to `video`. */
+  full?: string;
 }

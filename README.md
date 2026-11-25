@@ -42,9 +42,20 @@ All copy and media lives in `src/data/`:
 - `bts.ts` — behind-the-scenes carousel.
 - `site.ts` — nav, `LIVE_URL` (where the Live link goes), `HERO_VIDEO`, socials, contact email, ethos line.
 
-Any sample, portrait, service item or BTS frame takes `img` (import a file from `src/assets/`) and/or
-`video` (an MP4 URL or a path in `/public`). Use short muted MP4s rather than GIFs — same look,
-a fraction of the size. Anything without media shows a placeholder frame.
+Any sample, portrait, service item or BTS frame takes `img` (import a file from `src/assets/`),
+`video` (a short silent MP4 loop, played on hover) and, for work samples, `full` (the full spot with
+sound, played in the viewer). Video files live in `public/media/…` and are referenced as
+`/media/…`. Use MP4s rather than GIFs — same look, a fraction of the size. Anything without media
+shows a placeholder frame.
+
+Encoding used for the site (ffmpeg):
+
+```bash
+# hover loop: 5–7s, silent, 720p (~1.5 MB)
+ffmpeg -ss START -t 6.3 -i in.mp4 -an -vf scale=1280:-2 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart name-loop.mp4
+# full spot: 720p with sound (~6–7 MB for 30s)
+ffmpeg -i in.mp4 -vf scale=1280:-2 -c:v libx264 -preset slow -crf 23 -maxrate 1600k -bufsize 3200k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart name.mp4
+```
 
 **Contact form:** there is no backend yet, so sending opens the visitor's email app with the
 message filled in, addressed to `CONTACT_EMAIL`. Swap `submit` in `Contact.tsx` for a form

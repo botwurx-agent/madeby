@@ -38,7 +38,13 @@ export function Viewer({ list, start, origin, onClose, more = true }: Props) {
         <>
           <div className="viewer-frame">
             <div key={sample.id} className="viewer-media">
-              <Media source={sample} label={sample.title} sizes="(max-width: 900px) 100vw, 1200px" controls priority />
+              <Media
+                source={{ ...sample, video: sample.full ?? sample.video }}
+                label={sample.title}
+                sizes="(max-width: 900px) 100vw, 1200px"
+                controls
+                priority
+              />
             </div>
           </div>
           <div className="viewer-info ov-in">

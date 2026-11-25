@@ -26,10 +26,18 @@ export function Media({ source, label, sizes, playing = false, controls = false,
 
   useEffect(() => {
     const v = videoRef.current;
-    if (!v || controls) return;
+    if (!v) return;
+    if (controls) {
+      // Opened by a click, so sound is usually allowed; if the browser says no, start muted.
+      v.play().catch(() => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+      return;
+    }
     if (playing) v.play().catch(() => {});
     else v.pause();
-  }, [playing, controls]);
+  }, [playing, controls, source.video]);
 
   if (source.video) {
     return (
@@ -39,11 +47,10 @@ export function Media({ source, label, sizes, playing = false, controls = false,
         src={source.video}
         poster={source.img?.src}
         muted={!controls}
-        loop
+        loop={!controls}
         playsInline
         controls={controls}
-        autoPlay={controls}
-        preload="metadata"
+        preload={controls ? 'auto' : 'metadata'}
         aria-label={label}
       />
     );
