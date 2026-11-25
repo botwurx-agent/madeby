@@ -36,7 +36,7 @@ opens out of (and folds back into) whatever was clicked.
 
 All copy and media lives in `src/data/`:
 
-- `work.ts` — work samples. `featured: true` puts one in the home grid (first 12).
+- `work.ts` — work samples. `featured: true` puts one in the home grid (first 12); `hidden: true` takes one off the site without deleting it.
 - `team.ts` — crew, roles, bios, portraits, and which samples show in each profile.
 - `services.ts` — the three phases and their items (12 fill the phase viewer).
 - `bts.ts` — behind-the-scenes carousel.

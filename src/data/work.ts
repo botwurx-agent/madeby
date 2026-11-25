@@ -1,6 +1,7 @@
 import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
 import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
+import hydrascience from '../assets/projects/hydrascience.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
 
@@ -17,9 +18,11 @@ export interface WorkSample extends MediaSource {
   desc: string;
   /** Shown in the 4×3 grid on the home page (first 12 featured). */
   featured: boolean;
+  /** Kept in the list but left off the site everywhere. */
+  hidden?: boolean;
 }
 
-export const WORK: WorkSample[] = [
+const ALL_WORK: WorkSample[] = [
   {
     id: 'big-fat-tacos',
     title: 'Big Fat Tacos',
@@ -60,7 +63,21 @@ export const WORK: WorkSample[] = [
     featured: true,
   },
   {
+    id: 'hydrascience',
+    title: 'Hydrascience',
+    client: 'Liquid I.V.',
+    category: 'Commercial',
+    year: '2024',
+    img: hydrascience,
+    video: '/media/work/hydrascience-loop.mp4',
+    full: '/media/work/hydrascience.mp4',
+    services: ['Direction', 'High-Speed', 'Post'],
+    desc: 'Liquid I.V. Hydration Multiplier: transform ordinary water into extraordinary hydration. High-speed liquid and powder work built around one move — tear, pour, hydrate.',
+    featured: true,
+  },
+  {
     id: 'cherry-splash',
+    hidden: true,
     title: 'Cherry Splash',
     client: 'Hint Water',
     category: 'Commercial',
@@ -84,6 +101,9 @@ export const WORK: WorkSample[] = [
   { id: 'slice', title: 'Slice', client: 'Pizza Co.', category: 'Social', year: '2023', services: ['Production', 'Resolution Sizes'], desc: 'The cheese pull, 40 ways. A cut-down library for every platform and ratio.', featured: false },
   { id: 'harvest', title: 'Harvest', client: 'Grocer', category: 'Commercial', year: '2023', services: ['Direction', 'Production'], desc: 'Farm-to-shelf spot following produce from field to store in a single day.', featured: false },
 ];
+
+/** Everything on the site: ALL_WORK minus hidden samples. */
+export const WORK = ALL_WORK.filter((w) => !w.hidden);
 
 export const FEATURED_WORK = WORK.filter((w) => w.featured).slice(0, 12);
 
