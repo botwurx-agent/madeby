@@ -3,27 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { Media } from '../../components/Media';
 import { BTS, type BtsShot } from '../../data/bts';
-import { Overlay, useOverlay } from '../../lib/Overlay';
-
-/** Full behind-the-scenes edit with sound. */
-function BtsViewer({ shot, origin, onClose }: { shot: BtsShot; origin: HTMLElement | null; onClose: () => void }) {
-  return (
-    <Overlay label={shot.caption} origin={origin} onClose={onClose} className={`bts-viewer${shot.portrait ? ' is-portrait' : ''}`}>
-      {() => (
-        <>
-          <div className="bts-viewer-frame">
-            <div className="viewer-media">
-              <Media source={{ ...shot, video: shot.full ?? shot.video }} label={shot.caption} sizes="600px" controls />
-            </div>
-          </div>
-          <p className="bts-viewer-cap ov-in">
-            <span>Behind the scenes</span> {shot.caption}
-          </p>
-        </>
-      )}
-    </Overlay>
-  );
-}
+import { MediaViewer } from '../../components/MediaViewer';
+import { useOverlay } from '../../lib/Overlay';
 
 /**
  * Behind-the-scenes reel. The frame nearest the centre grows to full size;
@@ -162,7 +143,16 @@ export function BtsCarousel() {
           →
         </button>
       </div>
-      {viewer.item && <BtsViewer shot={viewer.item} origin={viewer.origin} onClose={viewer.close} />}
+      {viewer.item && (
+        <MediaViewer
+          source={viewer.item}
+          label={viewer.item.caption}
+          eyebrow="Behind the scenes"
+          portrait={viewer.item.portrait}
+          origin={viewer.origin}
+          onClose={viewer.close}
+        />
+      )}
     </div>
   );
 }

@@ -1564,10 +1564,23 @@ body:has(.hero) .nav {
   animation: ripple-in 0.9s var(--ease-out) both;
 }
 
+.phase-open {
+  display: block;
+  width: 100%;
+}
+
+.phase-open .phase-frame .media {
+  transition: transform 0.9s var(--ease-out);
+}
+
+.phase-open:hover .phase-frame .media {
+  transform: scale(1.04);
+}
+
 .phase-frame {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 6px;
   background: #111;

@@ -1,7 +1,12 @@
+import caliSqueezeDeck from '../assets/services/cali-squeeze-deck.webp';
+import caliSqueezeMoodBoard from '../assets/services/cali-squeeze-mood-board.webp';
+import caliSqueezeShotList from '../assets/services/cali-squeeze-shot-list.webp';
 import type { MediaSource } from './media';
 
 export interface ServiceItem extends MediaSource {
   name: string;
+  /** Which job the sample comes from, shown when it is opened. */
+  from?: string;
 }
 
 export interface ServicePhase {
@@ -24,20 +29,15 @@ export const SERVICES: ServicePhase[] = [
     title: 'Pre-Production',
     desc: 'Every frame planned before a light is switched on.',
     long: 'Concept, script and boards through to the call sheet. We lock the look, the schedule and the budget up front, so the shoot day is about craft — not surprises.',
-    items: items(
-      'Storyboards',
-      'Shot Lists',
-      'Animatics',
-      'Decks',
-      'Call Sheets',
-      'Scripting',
-      'Location Scouting',
-      'Casting',
-      'Food Styling Prep',
-      'Mood Boards',
-      'Scheduling',
-      'Budgeting',
-    ),
+    items: [
+      { name: 'Storyboards' },
+      { name: 'Shot Lists', img: caliSqueezeShotList, from: 'Cali Squeeze — pre-light shot list' },
+      { name: 'Animatics' },
+      { name: 'Decks', img: caliSqueezeDeck, from: 'Cali Squeeze — capture concept' },
+      { name: 'Call Sheets' },
+      { name: 'Mood Boards', img: caliSqueezeMoodBoard, from: 'Cali Squeeze — lighting and background' },
+      ...items('Scripting', 'Location Scouting', 'Casting', 'Food Styling Prep', 'Scheduling', 'Budgeting'),
+    ],
   },
   {
     id: 'production',

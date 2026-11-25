@@ -1,8 +1,9 @@
 'use client';
 
 import { Media } from '../../components/Media';
+import { MediaViewer } from '../../components/MediaViewer';
 import { SectionHead } from '../../components/SectionHead';
-import { SERVICES, type ServicePhase } from '../../data/services';
+import { SERVICES, type ServiceItem, type ServicePhase } from '../../data/services';
 import { Overlay, useOverlay } from '../../lib/Overlay';
 
 /** Cells of a 4×4 grid around a 2×2 centre, in the order CSS auto-placement fills them. */
@@ -12,6 +13,7 @@ const RING = Array.from({ length: 16 }, (_, k) => [Math.floor(k / 4), k % 4] as 
 
 /** 1E (expanded) — samples ring the phase description and ripple out from it. */
 function PhaseViewer({ phase, origin, onClose }: { phase: ServicePhase; origin: HTMLElement | null; onClose: () => void }) {
+  const sample = useOverlay<ServiceItem>();
   return (
     <Overlay label={phase.title} origin={origin} onClose={onClose} className="phase">
       {() => (
@@ -26,15 +28,40 @@ function PhaseViewer({ phase, origin, onClose }: { phase: ServicePhase; origin: 
           {phase.items.slice(0, 12).map((item, i) => {
             const [r, c] = RING[i] ?? [3, 3];
             const dist = Math.hypot(r - 1.5, c - 1.5);
+            const frame = (
+              <span className="phase-frame">
+                <Media source={item} label={item.name} sizes="(max-width: 700px) 50vw, 20vw" playing />
+              </span>
+            );
+            const hasMedia = Boolean(item.img || item.video);
             return (
               <figure key={item.name} className="phase-tile" style={{ animationDelay: `${0.25 + dist * 0.11}s` }}>
-                <span className="phase-frame">
-                  <Media source={item} label={item.name} sizes="(max-width: 700px) 50vw, 20vw" playing />
-                </span>
+                {hasMedia ? (
+                  <button
+                    type="button"
+                    className="phase-open"
+                    onClick={(e) => sample.open(item, e.currentTarget)}
+                    data-cursor="View"
+                    aria-label={`View ${item.name}${item.from ? ` — ${item.from}` : ''}`}
+                  >
+                    {frame}
+                  </button>
+                ) : (
+                  frame
+                )}
                 <figcaption>{item.name}</figcaption>
               </figure>
             );
           })}
+          {sample.item && (
+            <MediaViewer
+              source={sample.item}
+              label={sample.item.from ?? sample.item.name}
+              eyebrow={`${phase.title} · ${sample.item.name}`}
+              origin={sample.origin}
+              onClose={sample.close}
+            />
+          )}
         </div>
       )}
     </Overlay>
