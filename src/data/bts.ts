@@ -1,4 +1,5 @@
 import delTacoBts from '../assets/bts-del-taco.webp';
+import hintBts from '../assets/bts-hint.webp';
 import mezclaBts from '../assets/bts-mezcla.webp';
 import poppiBts from '../assets/bts-poppi.webp';
 import onSet from '../assets/about-on-set.webp';
@@ -36,6 +37,13 @@ export const BTS: BtsShot[] = [
     img: poppiBts,
     video: '/media/bts/poppi-bts-loop.mp4',
     full: blob('bts/poppi-bts.mp4'),
+    portrait: true,
+  },
+  {
+    caption: 'Hint — rebrand',
+    img: hintBts,
+    video: '/media/bts/hint-bts-loop.mp4',
+    full: blob('bts/hint-bts.mp4'),
     portrait: true,
   },
   { caption: 'Phantom at 1,000fps' },
