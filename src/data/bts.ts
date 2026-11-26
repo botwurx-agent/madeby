@@ -18,8 +18,7 @@ export interface BtsShot extends MediaSource {
  * the middle entry. Entries with `full` open a viewer with sound when clicked.
  */
 export const BTS: BtsShot[] = [
-  { caption: 'Tabletop, day two' },
-  { caption: 'On set, Los Angeles', img: onSet },
+  { caption: 'On set — the crew', img: onSet },
   {
     caption: 'Del Taco — Del Dorado Chicken',
     img: delTacoBts,
@@ -62,6 +61,4 @@ export const BTS: BtsShot[] = [
     full: blob('bts/big-fat-tacos-bts.mp4'),
     portrait: true,
   },
-  { caption: 'Phantom at 1,000fps' },
-  { caption: 'Color session' },
 ];

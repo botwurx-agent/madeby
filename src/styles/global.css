@@ -1262,7 +1262,8 @@ body:has(.hero) .nav {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  padding: 1rem calc(50% - var(--card) / 2);
+  /* Room for the narrowest (9:16) card to reach the centre at either end. */
+  padding: 1rem calc(50% - var(--card) * 0.75 * 9 / 32);
   cursor: grab;
 }
 
