@@ -1,4 +1,5 @@
 import fredPortrait from '../assets/team/fred.webp';
+import gregPortrait from '../assets/team/greg.webp';
 import type { MediaSource } from './media';
 
 export interface TeamMember {
@@ -43,6 +44,7 @@ export const TEAM: TeamMember[] = [
     title: 'Gaffer',
     roles: ['Lighting', 'Electrical', 'Camera Support'],
     short: 'Has lit every MadeBy set since day one. Economical, intentional, always beautiful.',
+    portrait: { img: gregPortrait, focus: '50% 15%' },
     bio: 'Greg has lit every MadeBy set since day one. Trained under a DP known for practical-only lighting, his setups are economical, intentional and always beautiful. He turns whatever a location gives him into something that looks like it was always the plan.',
     work: ['del-dorado-chicken', 'all-american-burgers', 'hydrascience', 'poppi-cherry-cola', 'cali-squeeze', 'kettle-and-fire', 'ninja-creami', 'steam', 'midnight-snack', 'cherry-splash', 'golden-hour', 'vineyard-run', 'slice'],
   },
