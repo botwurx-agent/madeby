@@ -5,6 +5,7 @@ import caliSqueeze from '../assets/projects/cali-squeeze.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
+import kettleAndFire from '../assets/projects/kettle-and-fire.webp';
 import mezcla from '../assets/projects/mezcla.webp';
 import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
@@ -143,6 +144,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/mezcla.mp4',
     services: ['Direction', 'Live Action', 'Color Grade'],
     desc: 'Sun-soaked lifestyle spot for Mezcla Puff-Crispy Bars. Poolside, courtside and top-down in a convertible — a light, crispy protein bar that fits wherever the day goes.',
+    featured: true,
+  },
+  {
+    id: 'kettle-and-fire',
+    title: 'Play With Your Food',
+    client: 'Kettle & Fire',
+    category: 'Commercial',
+    year: '2024',
+    img: kettleAndFire,
+    video: '/media/work/kettle-and-fire-loop.mp4',
+    full: '/media/work/kettle-and-fire.mp4',
+    services: ['Direction', 'Tabletop', 'Graphic Animation'],
+    desc: 'Overhead tabletop spot for Kettle & Fire broths. Play with your food, not your health: ramen, stews and soups in split-screen pairs, cut to bold animated type.',
     featured: true,
   },
   {
