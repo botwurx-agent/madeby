@@ -1,3 +1,5 @@
+import budget from '../assets/services/budget.webp';
+import callSheet from '../assets/services/call-sheet.webp';
 import hintStoryboard from '../assets/services/hint-storyboard.webp';
 import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
 import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
@@ -38,14 +40,14 @@ export const SERVICES: ServicePhase[] = [
       { name: 'Shot Lists', img: iqbarShotBoard, from: 'IQBAR Bites — shot board' },
       { name: 'Animatics', img: wienerschnitzelAnimatic, from: 'Wienerschnitzel — animatic frame' },
       { name: 'Decks', img: hintStoryboard, from: 'Hint — Treat Yourself, director’s approach' },
-      { name: 'Call Sheets' },
+      { name: 'Call Sheets', img: callSheet, from: 'Ridgeline “First Light” :30 — day 3 call sheet' },
       { name: 'Mood Boards', img: mezclaMoodCar, from: 'Mezcla — car & street references' },
       { name: 'Scripting' },
       { name: 'Location Scouting', img: mezclaLocationPool, from: 'Mezcla — pool location board' },
       { name: 'Casting' },
       { name: 'Food Styling Prep' },
       { name: 'Scheduling', img: mezclaSchedule, from: 'Mezcla — day 3 schedule' },
-      { name: 'Budgeting' },
+      { name: 'Budgeting', img: budget, from: 'Ridgeline “First Light” :30 — estimate vs actual' },
     ],
   },
   {
