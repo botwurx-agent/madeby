@@ -7,7 +7,7 @@ import { Viewer } from '../../components/Viewer';
 import { WorkTile } from '../../components/WorkTile';
 import { TEAM, type TeamMember } from '../../data/team';
 import { WORK, type WorkSample } from '../../data/work';
-import { useInView } from '../../lib/hooks';
+import { useInView, usePinned } from '../../lib/hooks';
 import { Overlay, useOverlay } from '../../lib/Overlay';
 
 const initials = (name: string) =>
@@ -86,9 +86,11 @@ function Profile({ member, origin, onClose }: { member: TeamMember; origin: HTML
 export function TeamSection() {
   const profile = useOverlay<TeamMember>();
   const [listRef, seen] = useInView<HTMLUListElement>(0.15);
+  // Holds and eases back while the BTS section slides over it (see usePinned).
+  const sectionRef = usePinned<HTMLElement>();
 
   return (
-    <section id="about" className="section team">
+    <section ref={sectionRef} id="about" className="section team pin">
       <SectionHead num="02" label="About us" title="The crew">
         <p>A small, senior team that stays with your project from the first board to the final file.</p>
       </SectionHead>

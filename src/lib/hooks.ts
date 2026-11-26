@@ -61,3 +61,44 @@ export function useTimecode<T extends HTMLElement>(running: boolean): RefObject<
   }, [running]);
   return ref;
 }
+
+/**
+ * Pins a section under the one that follows it, like the hero: once the whole
+ * section has scrolled into view (its bottom edge reaches the bottom of the
+ * screen) it holds, and --p runs 0 → 1 as the next section slides up over it.
+ * Sets --stick (sticky top), --oy (scale origin) and --p on the element; the
+ * `.pin` styles in global.css do the rest.
+ */
+export function usePinned<T extends HTMLElement>(): RefObject<T | null> {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const vh = window.innerHeight;
+      const h = el.offsetHeight;
+      el.style.setProperty('--stick', `${Math.min(0, vh - h)}px`);
+      el.style.setProperty('--oy', `${Math.max(h / 2, h - vh / 2)}px`);
+      const next = el.nextElementSibling as HTMLElement | null;
+      const top = next ? next.getBoundingClientRect().top : vh;
+      el.style.setProperty('--p', Math.min(1, Math.max(0, (vh - top) / vh)).toFixed(4));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    const ro = new ResizeObserver(onScroll);
+    ro.observe(el);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      ro.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+  return ref;
+}

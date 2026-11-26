@@ -586,22 +586,26 @@ body:has(.hero) .nav {
   box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.6);
 }
 
-/* Selected Work holds (once fully scrolled into view) and eases back into a
-   framed card while the crew section slides up over it — same move as the hero. */
-.sheet > .work {
-  position: sticky;
-  top: var(--stick, 0px);
-  z-index: 0;
-  --p: 0;
+/* Stacked sections: a `.pin` section holds once fully scrolled into view and
+   eases back into a framed card while the next section slides up over it —
+   the same move as the hero. Order: Work (pinned) ← Crew (pinned) ← BTS. */
+.sheet > .section {
+  position: relative;
+  z-index: 1;
   background: var(--bg);
-  border-radius: 22px 22px calc(var(--p) * 28px) calc(var(--p) * 28px);
-  /* A hairline frame fades in as it shrinks, so the card reads against the black. */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, calc(var(--p) * 0.16));
-  transform: scale(calc(1 - var(--p) * 0.08));
-  transform-origin: 50% var(--oy, 50%);
 }
 
-.sheet > .work::after {
+.sheet > .section.pin {
+  position: sticky;
+  top: var(--stick, 0px);
+  --p: 0;
+  transform: scale(calc(1 - var(--p) * 0.08));
+  transform-origin: 50% var(--oy, 50%);
+  /* A hairline frame fades in as it shrinks, so the card reads against the black. */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, calc(var(--p) * 0.16));
+}
+
+.sheet > .section.pin::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -611,17 +615,24 @@ body:has(.hero) .nav {
   pointer-events: none;
 }
 
-/* Everything after it covers it. */
-.sheet > .section:not(.work) {
-  position: relative;
-  z-index: 1;
-  background: var(--bg);
+.sheet > .section.work {
+  z-index: 0;
+  border-radius: 22px 22px calc(var(--p) * 28px) calc(var(--p) * 28px);
 }
 
-.sheet > .team {
+/* Sections that slide over a pinned one: rounded leading edge with a hairline. */
+.sheet > .team,
+.sheet > .ethos {
   border-radius: 22px 22px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.75);
+}
+
+.sheet > .section.team {
+  border-radius: 22px 22px calc(var(--p) * 28px) calc(var(--p) * 28px);
+  box-shadow:
+    0 -30px 80px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, calc(var(--p) * 0.16));
 }
 
 /* --------------------------------------------------------------------------
@@ -2138,7 +2149,7 @@ body:has(.hero) .nav {
   .hero-still:first-child {
     opacity: 1;
   }
-  .sheet > .work {
+  .sheet > .section.pin {
     transform: none;
   }
 }
