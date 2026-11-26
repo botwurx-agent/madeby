@@ -6,7 +6,7 @@ import hintStoryboard from '../assets/services/hint-storyboard.webp';
 import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
 import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
 import mezclaMoodCar from '../assets/services/mezcla-mood-car.webp';
-import mezclaSchedule from '../assets/services/mezcla-schedule.webp';
+import shootSchedule from '../assets/services/shoot-schedule.webp';
 import wienerschnitzelAnimatic from '../assets/services/wienerschnitzel-animatic.webp';
 import wienerschnitzelStoryboard from '../assets/services/wienerschnitzel-storyboard.webp';
 import type { MediaSource } from './media';
@@ -48,7 +48,7 @@ export const SERVICES: ServicePhase[] = [
       { name: 'Location Scouting', img: mezclaLocationPool, from: 'Mezcla — pool location board' },
       { name: 'Casting', img: castingHandTalent, from: 'IQBAR Bites — hand talent manicure brief' },
       { name: 'Prop & Food Styling', img: hintPropDeck, from: 'Hint — Treat Yourself prop deck, Strawberry Cupcake World' },
-      { name: 'Scheduling', img: mezclaSchedule, from: 'Mezcla — day 3 schedule' },
+      { name: 'Scheduling', img: shootSchedule, from: 'Ridgeline “First Light” :30 — day 1 shooting schedule' },
       { name: 'Budgeting', img: budget, from: 'Ridgeline “First Light” :30 — estimate vs actual' },
     ],
   },
