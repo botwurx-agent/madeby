@@ -43,10 +43,18 @@ All copy and media lives in `src/data/`:
 - `site.ts` — nav, `LIVE_URL` (where the Live link goes), `HERO_VIDEO`, socials, contact email, ethos line.
 
 Any sample, portrait, service item or BTS frame takes `img` (import a file from `src/assets/`),
-`video` (a short silent MP4 loop, played on hover) and, for work samples, `full` (the full spot with
-sound, played in the viewer). Video files live in `public/media/…` and are referenced as
-`/media/…`. Use MP4s rather than GIFs — same look, a fraction of the size. Anything without media
-shows a placeholder frame.
+`video` (a short silent MP4 loop, played on hover) and, for work samples and BTS clips, `full`
+(the full spot with sound, played in the viewer). Use MP4s rather than GIFs — same look, a fraction
+of the size. Anything without media shows a placeholder frame.
+
+Where the files live:
+
+- **Hover loops** (`*-loop.mp4`, ~1–2 MB each) are in `public/media/work` and `public/media/bts`,
+  referenced as `/media/…`.
+- **Full-length spots** are in the Vercel Blob store **madeby-media** (public, iad1), referenced
+  with `blob('work/<name>.mp4')` from `src/data/media.ts`. Upload new ones there (Blob dashboard →
+  Manage Blobs → Upload, or the Blob API) with the pathname `work/<name>.mp4` or `bts/<name>.mp4`,
+  then set `full: blob('work/<name>.mp4')` on the sample.
 
 Encoding used for the site (ffmpeg):
 

@@ -2,7 +2,7 @@ import delTacoBts from '../assets/bts-del-taco.webp';
 import mezclaBts from '../assets/bts-mezcla.webp';
 import poppiBts from '../assets/bts-poppi.webp';
 import onSet from '../assets/about-on-set.webp';
-import type { MediaSource } from './media';
+import { blob, type MediaSource } from './media';
 
 export interface BtsShot extends MediaSource {
   caption: string;
@@ -21,21 +21,21 @@ export const BTS: BtsShot[] = [
     caption: 'Del Taco — Del Dorado Chicken',
     img: delTacoBts,
     video: '/media/bts/del-taco-bts-loop.mp4',
-    full: '/media/bts/del-taco-bts.mp4',
+    full: blob('bts/del-taco-bts.mp4'),
     portrait: true,
   },
   {
     caption: 'Mezcla — on location',
     img: mezclaBts,
     video: '/media/bts/mezcla-bts-loop.mp4',
-    full: '/media/bts/mezcla-bts.mp4',
+    full: blob('bts/mezcla-bts.mp4'),
     portrait: true,
   },
   {
     caption: 'Poppi — Cherry Cola',
     img: poppiBts,
     video: '/media/bts/poppi-bts-loop.mp4',
-    full: '/media/bts/poppi-bts.mp4',
+    full: blob('bts/poppi-bts.mp4'),
     portrait: true,
   },
   { caption: 'Phantom at 1,000fps' },
