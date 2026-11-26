@@ -1,5 +1,6 @@
 import budget from '../assets/services/budget.webp';
 import callSheet from '../assets/services/call-sheet.webp';
+import castingHandTalent from '../assets/services/casting-hand-talent.webp';
 import hintStoryboard from '../assets/services/hint-storyboard.webp';
 import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
 import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
@@ -44,7 +45,7 @@ export const SERVICES: ServicePhase[] = [
       { name: 'Mood Boards', img: mezclaMoodCar, from: 'Mezcla — car & street references' },
       { name: 'Scripting' },
       { name: 'Location Scouting', img: mezclaLocationPool, from: 'Mezcla — pool location board' },
-      { name: 'Casting' },
+      { name: 'Casting', img: castingHandTalent, from: 'IQBAR Bites — hand talent manicure brief' },
       { name: 'Food Styling Prep' },
       { name: 'Scheduling', img: mezclaSchedule, from: 'Mezcla — day 3 schedule' },
       { name: 'Budgeting', img: budget, from: 'Ridgeline “First Light” :30 — estimate vs actual' },
