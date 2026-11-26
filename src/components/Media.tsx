@@ -51,6 +51,7 @@ export function Media({ source, label, sizes, playing = false, controls = false,
         playsInline
         controls={controls}
         preload={controls ? 'auto' : 'metadata'}
+        style={source.focus ? { objectPosition: source.focus } : undefined}
         aria-label={label}
       />
     );
@@ -66,6 +67,7 @@ export function Media({ source, label, sizes, playing = false, controls = false,
         sizes={sizes}
         priority={priority}
         placeholder="blur"
+        style={source.focus ? { objectPosition: source.focus } : undefined}
       />
     );
   }

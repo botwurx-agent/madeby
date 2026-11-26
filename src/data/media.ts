@@ -11,6 +11,8 @@ export interface MediaSource {
   video?: string;
   /** Full-length MP4 with sound, played in the viewer. Falls back to `video`. */
   full?: string;
+  /** Which part stays in view when the frame crops it (CSS object-position), e.g. '50% 15%'. */
+  focus?: string;
 }
 
 /**

@@ -1,3 +1,4 @@
+import fredPortrait from '../assets/team/fred.webp';
 import type { MediaSource } from './media';
 
 export interface TeamMember {
@@ -32,6 +33,7 @@ export const TEAM: TeamMember[] = [
     title: 'Co-Founder',
     roles: ['Executive Producer', 'Client Strategy', 'Logistics'],
     short: 'The reason shoots land on time and on budget without feeling like a compromise.',
+    portrait: { img: fredPortrait, focus: '50% 15%' },
     bio: 'Fred is the reason MadeBy shoots run on time and on budget without ever feeling like a compromise. A former line producer turned EP, he knows what a shoot needs before anyone else in the room does. The creative always comes first.',
     work: ['treat-yourself', 'cosori-juni', 'hydrascience', 'poppi-cherry-cola', 'cali-squeeze', 'mezcla', 'ninja-creami', 'cherry-splash', 'crisp-and-clean', 'cold-brew', 'the-pour', 'fizz', 'harvest'],
   },
