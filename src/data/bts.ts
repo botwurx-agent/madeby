@@ -1,5 +1,6 @@
 import delTacoBts from '../assets/bts-del-taco.webp';
 import hintBts from '../assets/bts-hint.webp';
+import liquidIvBts from '../assets/bts-liquid-iv.webp';
 import mezclaBts from '../assets/bts-mezcla.webp';
 import poppiBts from '../assets/bts-poppi.webp';
 import onSet from '../assets/about-on-set.webp';
@@ -44,6 +45,13 @@ export const BTS: BtsShot[] = [
     img: hintBts,
     video: '/media/bts/hint-bts-loop.mp4',
     full: blob('bts/hint-bts.mp4'),
+    portrait: true,
+  },
+  {
+    caption: 'Liquid I.V. — Hydrascience',
+    img: liquidIvBts,
+    video: '/media/bts/liquid-iv-bts-loop.mp4',
+    full: blob('bts/liquid-iv-bts.mp4'),
     portrait: true,
   },
   { caption: 'Phantom at 1,000fps' },
