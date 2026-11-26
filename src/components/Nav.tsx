@@ -19,26 +19,37 @@ export function Nav() {
   const linksRef = useRef<HTMLUListElement>(null);
   const [bar, setBar] = useState<{ x: number; w: number } | null>(null);
 
-  // Section tracking on the home page.
+  // Section tracking on the home page: the active link belongs to the last
+  // section whose top has scrolled past 40% of the screen. (Position-based, so
+  // a section that is pinned underneath the next one stops counting.)
   useEffect(() => {
     if (!isHome) return;
     const ids = NAV_LINKS.flatMap((l) => l.sections);
-    const visible = new Map<string, number>();
-    const obs = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) visible.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0);
-        let best: string | null = null;
-        let max = 0;
-        for (const [id, r] of visible) if (r > max) [best, max] = [id, r];
-        setActive(best ? (NAV_LINKS.find((l) => l.sections.includes(best!))?.label ?? null) : null);
-      },
-      { rootMargin: '-35% 0px -35% 0px', threshold: [0, 0.01, 0.25, 0.5, 0.75, 1] },
-    );
-    for (const id of ids) {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    }
-    return () => obs.disconnect();
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const line = window.innerHeight * 0.4;
+      let current: string | null = null;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= line && r.bottom > 0) current = id;
+      }
+      // Above the first section (the hero) nothing is active.
+      setActive(current ? (NAV_LINKS.find((l) => l.sections.includes(current!))?.label ?? null) : null);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, [isHome]);
 
   // Solid after the hero; tuck away while scrolling down, return on scroll up.
