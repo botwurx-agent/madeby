@@ -1,4 +1,5 @@
 import delTacoBts from '../assets/bts-del-taco.webp';
+import mezclaBts from '../assets/bts-mezcla.webp';
 import onSet from '../assets/about-on-set.webp';
 import type { MediaSource } from './media';
 
@@ -20,6 +21,13 @@ export const BTS: BtsShot[] = [
     img: delTacoBts,
     video: '/media/bts/del-taco-bts-loop.mp4',
     full: '/media/bts/del-taco-bts.mp4',
+    portrait: true,
+  },
+  {
+    caption: 'Mezcla — on location',
+    img: mezclaBts,
+    video: '/media/bts/mezcla-bts-loop.mp4',
+    full: '/media/bts/mezcla-bts.mp4',
     portrait: true,
   },
   { caption: 'Phantom at 1,000fps' },
