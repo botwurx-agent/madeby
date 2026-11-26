@@ -1,6 +1,9 @@
-import caliSqueezeDeck from '../assets/services/cali-squeeze-deck.webp';
-import caliSqueezeMoodBoard from '../assets/services/cali-squeeze-mood-board.webp';
-import caliSqueezeShotList from '../assets/services/cali-squeeze-shot-list.webp';
+import hintStoryboard from '../assets/services/hint-storyboard.webp';
+import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
+import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
+import mezclaMoodCar from '../assets/services/mezcla-mood-car.webp';
+import mezclaSchedule from '../assets/services/mezcla-schedule.webp';
+import wienerschnitzelStoryboard from '../assets/services/wienerschnitzel-storyboard.webp';
 import type { MediaSource } from './media';
 
 export interface ServiceItem extends MediaSource {
@@ -30,13 +33,18 @@ export const SERVICES: ServicePhase[] = [
     desc: 'Every frame planned before a light is switched on.',
     long: 'Concept, script and boards through to the call sheet. We lock the look, the schedule and the budget up front, so the shoot day is about craft — not surprises.',
     items: [
-      { name: 'Storyboards' },
-      { name: 'Shot Lists', img: caliSqueezeShotList, from: 'Cali Squeeze — pre-light shot list' },
+      { name: 'Storyboards', img: wienerschnitzelStoryboard, from: 'Wienerschnitzel — All-American Pastrami :15' },
+      { name: 'Shot Lists', img: iqbarShotBoard, from: 'IQBAR Bites — shot board' },
       { name: 'Animatics' },
-      { name: 'Decks', img: caliSqueezeDeck, from: 'Cali Squeeze — capture concept' },
+      { name: 'Decks', img: hintStoryboard, from: 'Hint — Treat Yourself, director’s approach' },
       { name: 'Call Sheets' },
-      { name: 'Mood Boards', img: caliSqueezeMoodBoard, from: 'Cali Squeeze — lighting and background' },
-      ...items('Scripting', 'Location Scouting', 'Casting', 'Food Styling Prep', 'Scheduling', 'Budgeting'),
+      { name: 'Mood Boards', img: mezclaMoodCar, from: 'Mezcla — car & street references' },
+      { name: 'Scripting' },
+      { name: 'Location Scouting', img: mezclaLocationPool, from: 'Mezcla — pool location board' },
+      { name: 'Casting' },
+      { name: 'Food Styling Prep' },
+      { name: 'Scheduling', img: mezclaSchedule, from: 'Mezcla — day 3 schedule' },
+      { name: 'Budgeting' },
     ],
   },
   {
