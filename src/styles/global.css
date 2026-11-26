@@ -622,13 +622,15 @@ body:has(.hero) .nav {
 
 /* Sections that slide over a pinned one: rounded leading edge with a hairline. */
 .sheet > .team,
-.sheet > .ethos {
+.sheet > .ethos,
+.sheet > .services {
   border-radius: 22px 22px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.75);
 }
 
-.sheet > .section.team {
+.sheet > .section.team,
+.sheet > .section.ethos {
   border-radius: 22px 22px calc(var(--p) * 28px) calc(var(--p) * 28px);
   box-shadow:
     0 -30px 80px rgba(0, 0, 0, 0.75),

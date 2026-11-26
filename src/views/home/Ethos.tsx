@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { ETHOS, ETHOS_ACCENT } from '../../data/site';
+import { usePinned } from '../../lib/hooks';
 import { BtsCarousel } from './BtsCarousel';
 
 const WORDS = ETHOS.split(' ');
@@ -10,6 +11,8 @@ const ACCENT_FROM = WORDS.length - ETHOS_ACCENT.split(' ').length;
 /** 1D — the ethos, lit word by word as you scroll, over a behind-the-scenes carousel. */
 export function Ethos() {
   const textRef = useRef<HTMLParagraphElement>(null);
+  // Holds and eases back while Services slides over it (see usePinned).
+  const sectionRef = usePinned<HTMLElement>();
 
   useEffect(() => {
     const el = textRef.current!;
@@ -40,7 +43,7 @@ export function Ethos() {
   }, []);
 
   return (
-    <section id="ethos" className="section ethos">
+    <section ref={sectionRef} id="ethos" className="section ethos pin">
       <p className="eyebrow">
         <span className="eyebrow-num">(03)</span> Made by us
       </p>
