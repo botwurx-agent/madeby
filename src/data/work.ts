@@ -7,6 +7,7 @@ import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
 import kettleAndFire from '../assets/projects/kettle-and-fire.webp';
 import mezcla from '../assets/projects/mezcla.webp';
+import ninjaCreami from '../assets/projects/ninja-creami.webp';
 import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import type { MediaSource } from './media';
@@ -157,6 +158,19 @@ const ALL_WORK: WorkSample[] = [
     full: '/media/work/kettle-and-fire.mp4',
     services: ['Direction', 'Tabletop', 'Graphic Animation'],
     desc: 'Overhead tabletop spot for Kettle & Fire broths. Play with your food, not your health: ramen, stews and soups in split-screen pairs, cut to bold animated type.',
+    featured: true,
+  },
+  {
+    id: 'ninja-creami',
+    title: 'CREAMi XL',
+    client: 'Ninja',
+    category: 'Commercial',
+    year: '2026',
+    img: ninjaCreami,
+    video: '/media/work/ninja-creami-loop.mp4',
+    full: '/media/work/ninja-creami.mp4',
+    services: ['Direction', 'Tabletop', 'Live Action'],
+    desc: 'Product launch for the Ninja CREAMi XL. Ingredient macros — strawberries, mango, oats — become sorbet and protein ice cream, then the family kitchen takes over.',
     featured: true,
   },
   {
