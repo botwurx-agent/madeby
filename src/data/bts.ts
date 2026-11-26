@@ -1,3 +1,4 @@
+import bigFatTacosBts from '../assets/bts-big-fat-tacos.webp';
 import delTacoBts from '../assets/bts-del-taco.webp';
 import hintBts from '../assets/bts-hint.webp';
 import liquidIvBts from '../assets/bts-liquid-iv.webp';
@@ -52,6 +53,13 @@ export const BTS: BtsShot[] = [
     img: liquidIvBts,
     video: '/media/bts/liquid-iv-bts-loop.mp4',
     full: blob('bts/liquid-iv-bts.mp4'),
+    portrait: true,
+  },
+  {
+    caption: 'Del Taco — Big Fat Tacos',
+    img: bigFatTacosBts,
+    video: '/media/bts/big-fat-tacos-bts-loop.mp4',
+    full: blob('bts/big-fat-tacos-bts.mp4'),
     portrait: true,
   },
   { caption: 'Phantom at 1,000fps' },
