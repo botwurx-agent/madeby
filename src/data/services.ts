@@ -3,6 +3,7 @@ import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
 import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
 import mezclaMoodCar from '../assets/services/mezcla-mood-car.webp';
 import mezclaSchedule from '../assets/services/mezcla-schedule.webp';
+import wienerschnitzelAnimatic from '../assets/services/wienerschnitzel-animatic.webp';
 import wienerschnitzelStoryboard from '../assets/services/wienerschnitzel-storyboard.webp';
 import type { MediaSource } from './media';
 
@@ -35,7 +36,7 @@ export const SERVICES: ServicePhase[] = [
     items: [
       { name: 'Storyboards', img: wienerschnitzelStoryboard, from: 'Wienerschnitzel — All-American Pastrami :15' },
       { name: 'Shot Lists', img: iqbarShotBoard, from: 'IQBAR Bites — shot board' },
-      { name: 'Animatics' },
+      { name: 'Animatics', img: wienerschnitzelAnimatic, from: 'Wienerschnitzel — animatic frame' },
       { name: 'Decks', img: hintStoryboard, from: 'Hint — Treat Yourself, director’s approach' },
       { name: 'Call Sheets' },
       { name: 'Mood Boards', img: mezclaMoodCar, from: 'Mezcla — car & street references' },
