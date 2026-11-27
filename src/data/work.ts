@@ -5,6 +5,7 @@ import caliSqueeze from '../assets/projects/cali-squeeze.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
+import hintRebrand from '../assets/projects/hint-rebrand.webp';
 import kettleAndFire from '../assets/projects/kettle-and-fire.webp';
 import mezcla from '../assets/projects/mezcla.webp';
 import ninjaCreami from '../assets/projects/ninja-creami.webp';
@@ -171,6 +172,19 @@ const ALL_WORK: WorkSample[] = [
     full: blob('work/ninja-creami.mp4'),
     services: ['Direction', 'Tabletop', 'Live Action'],
     desc: 'Product launch for the Ninja CREAMi XL. Ingredient macros — strawberries, mango, oats — become sorbet and protein ice cream, then the family kitchen takes over.',
+    featured: true,
+  },
+  {
+    id: 'hint-rebrand',
+    title: 'Rebrand',
+    client: 'Hint',
+    category: 'Campaign',
+    year: '2026',
+    img: hintRebrand,
+    video: '/media/work/hint-rebrand-loop.mp4',
+    full: blob('work/hint-rebrand.mp4'),
+    services: ['Direction', 'Motion Control', 'Production', 'Post'],
+    desc: "The 30-second hero spot for Hint's rebrand. Bottles in a sky-blue world, a sea of cherries and high-speed pours — what water would taste like if it wanted people to drink it.",
     featured: true,
   },
   {
