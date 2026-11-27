@@ -6,6 +6,7 @@ import hintStoryboard from '../assets/services/hint-storyboard.webp';
 import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
 import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
 import mezclaMoodCar from '../assets/services/mezcla-mood-car.webp';
+import motionControlPreviz from '../assets/services/motion-control-previz.webp';
 import shootSchedule from '../assets/services/shoot-schedule.webp';
 import wienerschnitzelAnimatic from '../assets/services/wienerschnitzel-animatic.webp';
 import wienerschnitzelStoryboard from '../assets/services/wienerschnitzel-storyboard.webp';
@@ -36,7 +37,7 @@ export const SERVICES: ServicePhase[] = [
     num: '01',
     title: 'Pre-Production',
     desc: 'Every frame planned before a light is switched on.',
-    long: 'Concept, script and boards through to the call sheet. We lock the look, the schedule and the budget up front, so the shoot day is about craft — not surprises.',
+    long: 'Concept, boards and motion-control previz through to the call sheet. We lock the look, the schedule and the budget up front, so the shoot day is about craft — not surprises.',
     items: [
       { name: 'Storyboards', img: wienerschnitzelStoryboard, from: 'Wienerschnitzel — All-American Pastrami :15' },
       { name: 'Shot Lists', img: iqbarShotBoard, from: 'IQBAR Bites — shot board' },
@@ -44,7 +45,7 @@ export const SERVICES: ServicePhase[] = [
       { name: 'Decks', img: hintStoryboard, from: 'Hint — Treat Yourself, director’s approach' },
       { name: 'Call Sheets', img: callSheet, from: 'Ridgeline “First Light” :30 — day 3 call sheet' },
       { name: 'Mood Boards', img: mezclaMoodCar, from: 'Mezcla — car & street references' },
-      { name: 'Scripting' },
+      { name: 'Motion Control Previz', img: motionControlPreviz, from: 'Robot camera move planned on a tabletop set' },
       { name: 'Location Scouting', img: mezclaLocationPool, from: 'Mezcla — pool location board' },
       { name: 'Casting', img: castingHandTalent, from: 'IQBAR Bites — hand talent manicure brief' },
       { name: 'Prop & Food Styling', img: hintPropDeck, from: 'Hint — Treat Yourself prop deck, Strawberry Cupcake World' },
