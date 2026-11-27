@@ -2,6 +2,7 @@ import project01 from '../assets/projects/project-01.webp';
 import project02 from '../assets/projects/project-02.webp';
 import allAmericanBurgers from '../assets/projects/all-american-burgers.webp';
 import caliSqueeze from '../assets/projects/cali-squeeze.webp';
+import cheetosQueso from '../assets/projects/cheetos-queso.webp';
 import cosoriJuni from '../assets/projects/cosori-juni.webp';
 import delDoradoChicken from '../assets/projects/del-dorado-chicken.webp';
 import hydrascience from '../assets/projects/hydrascience.webp';
@@ -214,7 +215,19 @@ const ALL_WORK: WorkSample[] = [
     featured: true,
   },
   { id: 'crisp-and-clean', title: 'Crisp & Clean', client: 'Beverage Co.', category: 'Campaign', year: '2023', services: ['Creative Strategy', 'Production', 'Post'], desc: 'Three hero spots and twelve social cuts delivered across a six-week production sprint.', featured: true },
-  { id: 'midnight-snack', title: 'Midnight Snack', client: 'Food Brand', category: 'Commercial', year: '2023', services: ['Direction', 'Production'], desc: 'Late-night cravings in cinematic slow motion. Moody, atmospheric, shot entirely at night.', featured: true },
+  {
+    id: 'cheetos-queso',
+    title: 'Cheetos Queso',
+    client: 'Del Taco',
+    category: 'Social',
+    year: '2025',
+    img: cheetosQueso,
+    video: '/media/work/cheetos-queso-loop.mp4',
+    full: blob('work/cheetos-queso.mp4'),
+    services: ['Production', 'Tabletop', 'Food Styling', 'Post'],
+    desc: 'A 10-second hit for the Del Taco × Cheetos Queso menu. Burritos, a slow queso dip and a loaded nacho build — orange on orange.',
+    featured: true,
+  },
   { id: 'first-light', title: 'First Light', client: 'Coffee Label', category: 'Brand Film', year: '2024', services: ['Direction', 'Production', 'Post'], desc: 'A brand film for a single-origin coffee label. Three countries, one cup.', featured: true },
   { id: 'the-pour', title: 'The Pour', client: 'Craft Beer Co.', category: 'Social', year: '2024', services: ['Production', 'Graphic Animation'], desc: 'A vertical-first social series built around one perfect pour per week.', featured: true },
   { id: 'golden-hour', title: 'Golden Hour', client: 'Spirits Brand', category: 'Brand Film', year: '2024', services: ['Direction', 'Production', 'Color Grade'], desc: 'The craft of distilling, grain to glass, shot over a full harvest cycle.', featured: true },
