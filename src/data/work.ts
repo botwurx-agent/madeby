@@ -9,6 +9,7 @@ import hintRebrand from '../assets/projects/hint-rebrand.webp';
 import kettleAndFire from '../assets/projects/kettle-and-fire.webp';
 import mezcla from '../assets/projects/mezcla.webp';
 import ninjaCreami from '../assets/projects/ninja-creami.webp';
+import poppiOrangeCream from '../assets/projects/poppi-orange-cream.webp';
 import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import { blob, type MediaSource } from './media';
@@ -185,6 +186,19 @@ const ALL_WORK: WorkSample[] = [
     full: blob('work/hint-rebrand.mp4'),
     services: ['Direction', 'Motion Control', 'Production', 'Post'],
     desc: "The 30-second hero spot for Hint's rebrand. Bottles in a sky-blue world, a sea of cherries and high-speed pours — what water would taste like if it wanted people to drink it.",
+    featured: true,
+  },
+  {
+    id: 'poppi-orange-cream',
+    title: 'Orange Cream',
+    client: 'Poppi',
+    category: 'Commercial',
+    year: '2024',
+    img: poppiOrangeCream,
+    video: '/media/work/poppi-orange-cream-loop.mp4',
+    full: blob('work/poppi-orange-cream.mp4'),
+    services: ['Direction', 'Tabletop', 'High-Speed', 'Post'],
+    desc: "Orange Cream for Poppi. Juicy, creamy, bubbly — high-speed pours, a float that overflows and a can that never stops sweating.",
     featured: true,
   },
   {
