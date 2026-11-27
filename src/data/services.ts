@@ -7,6 +7,18 @@ import iqbarShotBoard from '../assets/services/iqbar-shot-board.webp';
 import mezclaLocationPool from '../assets/services/mezcla-location-pool.webp';
 import mezclaMoodCar from '../assets/services/mezcla-mood-car.webp';
 import motionControlPreviz from '../assets/services/motion-control-previz.webp';
+import resolveImageCorrection from '../assets/services/resolve-image-correction.webp';
+import resolveGraphicAnimation from '../assets/services/resolve-graphic-animation.webp';
+import resolveColorGrade from '../assets/services/resolve-color-grade.webp';
+import resolveAiVfx from '../assets/services/resolve-ai-vfx.webp';
+import resolveResolutionSizes from '../assets/services/resolve-resolution-sizes.webp';
+import resolveEditing from '../assets/services/resolve-editing.webp';
+import resolveSoundDesign from '../assets/services/resolve-sound-design.webp';
+import resolveMusicLicensing from '../assets/services/resolve-music-licensing.webp';
+import resolveCompositing from '../assets/services/resolve-compositing.webp';
+import resolveRetouching from '../assets/services/resolve-retouching.webp';
+import resolveSocialCutdowns from '../assets/services/resolve-social-cutdowns.webp';
+import resolveDelivery from '../assets/services/resolve-delivery.webp';
 import shootSchedule from '../assets/services/shoot-schedule.webp';
 import wienerschnitzelAnimatic from '../assets/services/wienerschnitzel-animatic.webp';
 import wienerschnitzelStoryboard from '../assets/services/wienerschnitzel-storyboard.webp';
@@ -28,8 +40,6 @@ export interface ServicePhase {
   /** The first five show on the home page; all show in the phase viewer (12 fill the frame). */
   items: ServiceItem[];
 }
-
-const items = (...names: string[]): ServiceItem[] => names.map((name) => ({ name }));
 
 export const SERVICES: ServicePhase[] = [
   {
@@ -80,19 +90,19 @@ export const SERVICES: ServicePhase[] = [
     title: 'Post-Production',
     desc: 'Finished, graded and cut for every screen.',
     long: 'Edit, color, graphics and VFX in-house, then versioned for every platform and ratio. One shoot becomes a full library of deliverables.',
-    items: items(
-      'Image Correction',
-      'Graphic Animation',
-      'Color Grade',
-      'AI VFX',
-      'Resolution Sizes',
-      'Editing',
-      'Sound Design',
-      'Music Licensing',
-      'Compositing',
-      'Retouching',
-      'Social Cut-Downs',
-      'Delivery',
-    ),
+    items: [
+      { name: 'Image Correction', img: resolveImageCorrection, from: 'Del Taco — primary balance and waveform' },
+      { name: 'Graphic Animation', img: resolveGraphicAnimation, from: 'Kettle & Fire — animated type in Fusion' },
+      { name: 'Color Grade', img: resolveColorGrade, from: 'Cosori Juni — four-node grade, before and after' },
+      { name: 'AI VFX', img: resolveAiVfx, from: 'Hint — AI isolation, tracked on the bottle' },
+      { name: 'Resolution Sizes', img: resolveResolutionSizes, from: 'Ninja CREAMi — 16:9 reframed to 9:16' },
+      { name: 'Editing', img: resolveEditing, from: 'Mezcla — the cut, across three tracks' },
+      { name: 'Sound Design', img: resolveSoundDesign, from: 'Poppi — layered fizz and pour in Fairlight' },
+      { name: 'Music Licensing', img: resolveMusicLicensing, from: 'Del Taco — licensed track, cut to the beat' },
+      { name: 'Compositing', img: resolveCompositing, from: 'Poppi — the three-panel composite in Fusion' },
+      { name: 'Retouching', img: resolveRetouching, from: 'Wienerschnitzel — hero burger, keyed and retouched' },
+      { name: 'Social Cut-Downs', img: resolveSocialCutdowns, from: 'Mezcla — vertical cut-down with captions' },
+      { name: 'Delivery', img: resolveDelivery, from: 'Ninja CREAMi — every ratio in the render queue' },
+    ],
   },
 ];
