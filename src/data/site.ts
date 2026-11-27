@@ -16,7 +16,7 @@ export const NAV_LINKS: NavLink[] = [
 export const LIVE_URL = 'https://instagram.com';
 
 export const SOCIAL_LINKS = [
-  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'Instagram', href: 'https://www.instagram.com/madebymedia/' },
   { label: 'Vimeo', href: 'https://vimeo.com' },
   { label: 'LinkedIn', href: 'https://linkedin.com' },
 ];
