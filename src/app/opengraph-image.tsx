@@ -22,15 +22,15 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: 'flex', fontSize: 36, fontWeight: 600, letterSpacing: -1 }}>
-          MADEBY<span style={{ color: '#ff5b04' }}>:</span>
+          MADEBY<span style={{ color: '#eb9004' }}>:</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', fontSize: 92, fontWeight: 500, lineHeight: 1, letterSpacing: -4 }}>
           <div>Commercial production</div>
           <div style={{ display: 'flex' }}>
-            for food &amp; beverage<span style={{ color: '#ff5b04' }}>.</span>
+            for food &amp; beverage<span style={{ color: '#eb9004' }}>.</span>
           </div>
         </div>
-        <div style={{ display: 'flex', height: 2, width: 160, background: '#ff5b04' }} />
+        <div style={{ display: 'flex', height: 2, width: 160, background: '#eb9004' }} />
       </div>
     ),
     size,

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MadeBy: black, white, and a little Lava Orange.
+   MadeBy: black, white, and a little amber.
    Colours and timing live in these variables.
    ========================================================================== */
 
@@ -10,8 +10,8 @@
   --dim: rgba(244, 244, 242, 0.58);
   --faint: rgba(244, 244, 242, 0.32);
   --line: rgba(255, 255, 255, 0.12);
-  /* Sampled from the GT2 RS reference. */
-  --orange: #ff5b04;
+  /* Accent: amber, #EB9004. */
+  --orange: #eb9004;
 
   --ease: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -1596,7 +1596,7 @@ body:has(.hero) .nav {
   padding: clamp(1.25rem, 3vw, 2.75rem);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: radial-gradient(ellipse at 50% 120%, rgba(255, 91, 4, 0.1), transparent 60%);
+  background: radial-gradient(ellipse at 50% 120%, rgba(235, 144, 4, 0.1), transparent 60%);
   animation: fade-up 0.8s var(--ease-out) 0.35s both;
 }
 
@@ -2700,7 +2700,7 @@ body:has(.hero) .nav {
   transform: rotateY(180deg);
   justify-content: flex-start;
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 91, 4, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(235, 144, 4, 0.18), transparent 55%),
     #0b0b0b;
 }
 

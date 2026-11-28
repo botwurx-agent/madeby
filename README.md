@@ -3,8 +3,8 @@
 Website for MadeBy, a commercial production company for food & beverage brands.
 Next.js (App Router), React 19, TypeScript. Every page is pre-rendered to static HTML.
 
-Look: black, white type (Inter Tight + Geist Mono), and Porsche Lava Orange (`--orange`, sampled
-from a GT2 RS) used only for small accents — the logo colon, the Live dot, active/hover rules,
+Look: black, white type (Inter Tight + Geist Mono), and an amber accent (`--orange`, #EB9004)
+used only for small accents: the logo colon, the Live dot, active/hover rules,
 REC timecodes and focus lines.
 
 ## Develop
