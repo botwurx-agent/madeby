@@ -2278,119 +2278,99 @@ body:has(.hero) .nav {
   opacity: 0;
 }
 
-/* The story: sticky slate + chapters */
+/* The story: sticky chapter index + chapters */
 .story {
   display: grid;
-  grid-template-columns: minmax(260px, 0.8fr) 2fr;
+  grid-template-columns: minmax(220px, 0.7fr) 2fr;
   gap: clamp(2rem, 5vw, 5rem);
   padding: clamp(6rem, 12vw, 10rem) var(--pad);
 }
 
-.story-slate {
+.story-aside {
   position: relative;
 }
 
-.slate {
+.story-index {
   position: sticky;
-  top: calc(var(--nav-h) + 6vh);
-  font-family: var(--font-mono), monospace;
-  text-transform: uppercase;
+  top: calc(var(--nav-h) + 8vh);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1.5rem;
 }
 
-.slate-clapper {
-  height: 34px;
-  border-radius: 6px 6px 0 0;
-  background: repeating-linear-gradient(-55deg, var(--fg) 0 18px, #111 18px 36px);
-  transform-origin: 0 100%;
-  animation: clap 0.55s var(--ease) both;
+.story-index .eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: 1.6rem;
 }
 
-@keyframes clap {
-  0% {
-    transform: rotate(-24deg);
-  }
-  70% {
-    transform: rotate(2deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.story-index ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.slate-board {
-  margin-top: 3px;
-  border: 1px solid var(--line);
-  border-radius: 0 0 8px 8px;
-  background: #0b0b0b;
+.story-index button {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.7rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  color: var(--faint);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.4s;
 }
 
-.slate-row {
-  padding: 0.9rem 1.1rem;
+.story-index li:last-child button {
   border-bottom: 1px solid var(--line);
 }
 
-.slate-row span {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: var(--faint);
+.story-index-num {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  transition: color 0.4s;
 }
 
-.slate-row strong {
-  display: block;
-  margin-top: 0.3rem;
-  font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+.story-index-title {
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  transition: transform 0.5s var(--ease-out);
 }
 
-.slate-split {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
+.story-index li.is-past button {
+  color: var(--dim);
 }
 
-.slate-split > div + div {
-  padding-left: 1rem;
-  border-left: 1px solid var(--line);
+.story-index li.is-active button,
+.story-index button:hover {
+  color: var(--fg);
 }
 
-.slate-take {
-  font-family: var(--font-sans), sans-serif;
-  font-size: clamp(2.6rem, 5vw, 4.2rem) !important;
-  letter-spacing: -0.04em !important;
-  line-height: 1;
+.story-index li.is-active .story-index-num {
   color: var(--orange);
-  animation: rise 0.6s var(--ease-out) both;
 }
 
-.slate-title {
-  animation: rise 0.6s var(--ease-out) both;
+.story-index li.is-active .story-index-title {
+  transform: translateX(6px);
 }
 
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-}
-
-.slate-progress {
-  display: flex;
-  gap: 6px;
-  padding: 0.9rem 1.1rem;
-}
-
-.slate-progress i {
-  flex: 1;
-  height: 3px;
-  border-radius: 2px;
+.story-index-bar {
+  position: relative;
+  width: 1px;
   background: var(--line);
-  transition: background 0.5s;
 }
 
-.slate-progress i.is-on {
+.story-index-bar i {
+  position: absolute;
+  inset: 0;
   background: var(--orange);
+  transform-origin: top;
+  transition: transform 0.7s var(--ease);
 }
 
 .story-chapters {
@@ -2869,31 +2849,8 @@ body:has(.hero) .nav {
   .story {
     grid-template-columns: 1fr;
   }
-  .story-slate {
-    position: sticky;
-    top: var(--nav-h);
-    z-index: 3;
-    margin: 0 calc(var(--pad) * -1);
-    padding: 0.6rem var(--pad);
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-  }
-  .slate {
-    position: static;
-  }
-  .slate-clapper {
-    height: 14px;
-  }
-  .slate-row:not(.slate-split),
-  .slate-progress {
+  .story-aside {
     display: none;
-  }
-  .slate-row {
-    padding: 0.5rem 0.8rem;
-    border-bottom: 0;
-  }
-  .slate-take {
-    font-size: 1.8rem !important;
   }
   .chapter {
     grid-template-columns: 1fr;
@@ -2917,10 +2874,7 @@ body:has(.hero) .nav {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track,
-  .slate-clapper,
-  .slate-take,
-  .slate-title {
+  .marquee-track {
     animation: none;
   }
   .chapter-frame {

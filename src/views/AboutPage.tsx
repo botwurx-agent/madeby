@@ -95,44 +95,31 @@ function PhotoTable() {
 }
 
 /* ------------------------------------------------------------------ */
-/* The story: a slate that claps on each new take.                     */
+/* The story: a quiet chapter index beside the takes.                  */
 /* ------------------------------------------------------------------ */
 
-function Slate({ chapter, total }: { chapter: Chapter; total: number }) {
+function StoryIndex({ active }: { active: number }) {
+  const jump = (i: number) =>
+    document.querySelectorAll('.chapter')[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   return (
-    <div className="slate" aria-hidden="true">
-      {/* Keyed on the take so the clapper snaps shut every time it changes. */}
-      <div key={chapter.take} className="slate-clapper" />
-      <div className="slate-board">
-        <div className="slate-row">
-          <span>Prod.</span>
-          <strong>MadeBy</strong>
-        </div>
-        <div className="slate-row slate-split">
-          <div>
-            <span>Scene</span>
-            <strong>Our story</strong>
-          </div>
-          <div>
-            <span>Take</span>
-            <strong key={chapter.take} className="slate-take">
-              {chapter.take}
-            </strong>
-          </div>
-        </div>
-        <div className="slate-row">
-          <span>Title</span>
-          <strong key={chapter.title} className="slate-title">
-            {chapter.title}
-          </strong>
-        </div>
-        <div className="slate-progress">
-          {Array.from({ length: total }, (_, i) => (
-            <i key={i} className={Number(chapter.take) - 1 >= i ? 'is-on' : ''} />
-          ))}
-        </div>
+    <nav className="story-index" aria-label="Chapters">
+      <p className="eyebrow">
+        <span className="eyebrow-num">({CHAPTERS[active].take})</span> Our story
+      </p>
+      <ol>
+        {CHAPTERS.map((c, i) => (
+          <li key={c.take} className={i === active ? 'is-active' : i < active ? 'is-past' : ''}>
+            <button type="button" onClick={() => jump(i)} aria-current={i === active ? 'step' : undefined}>
+              <span className="story-index-num">{c.take}</span>
+              <span className="story-index-title">{c.title}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <div className="story-index-bar" aria-hidden="true">
+        <i style={{ transform: `scaleY(${(active + 1) / CHAPTERS.length})` }} />
       </div>
-    </div>
+    </nav>
   );
 }
 
@@ -212,8 +199,8 @@ function Story() {
   const [active, setActive] = useState(0);
   return (
     <section className="story">
-      <div className="story-slate">
-        <Slate chapter={CHAPTERS[active]} total={CHAPTERS.length} />
+      <div className="story-aside">
+        <StoryIndex active={active} />
       </div>
       <div className="story-chapters">
         {CHAPTERS.map((c, i) => (
