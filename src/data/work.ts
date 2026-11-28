@@ -12,6 +12,7 @@ import mezcla from '../assets/projects/mezcla.webp';
 import ninjaCreami from '../assets/projects/ninja-creami.webp';
 import poppiOrangeCream from '../assets/projects/poppi-orange-cream.webp';
 import poppiCherryCola from '../assets/projects/poppi-cherry-cola.webp';
+import rightWay from '../assets/projects/right-way.webp';
 import treatYourself from '../assets/projects/treat-yourself.webp';
 import { blob, type MediaSource } from './media';
 
@@ -164,16 +165,16 @@ const ALL_WORK: WorkSample[] = [
     featured: true,
   },
   {
-    id: 'ninja-creami',
-    title: 'CREAMi XL',
-    client: 'Ninja',
+    id: 'right-way',
+    title: 'Al Pastor, the Right Way',
+    client: 'Del Taco',
     category: 'Commercial',
-    year: '2026',
-    img: ninjaCreami,
-    video: '/media/work/ninja-creami-loop.mp4',
-    full: blob('work/ninja-creami.mp4'),
-    services: ['Direction', 'Tabletop', 'Live Action'],
-    desc: 'Product launch for the Ninja CREAMi XL. Ingredient macros — strawberries, mango, oats — become sorbet and protein ice cream, then the family kitchen takes over.',
+    year: '2025',
+    img: rightWay,
+    video: '/media/work/right-way-loop.mp4',
+    full: blob('work/right-way.mp4'),
+    services: ['Direction', 'Production', 'Food Styling', 'Post'],
+    desc: "Launch spot for Trejo's Tacos Roasted Pork Al Pastor at Del Taco. A kitchen, a microwave that has it coming, and street tacos done the right way.",
     featured: true,
   },
   {
@@ -214,7 +215,19 @@ const ALL_WORK: WorkSample[] = [
     desc: 'High-speed product beauty for Hint Water. Macro water work combined with motion-controlled pack shots.',
     featured: true,
   },
-  { id: 'crisp-and-clean', title: 'Crisp & Clean', client: 'Beverage Co.', category: 'Campaign', year: '2023', services: ['Creative Strategy', 'Production', 'Post'], desc: 'Three hero spots and twelve social cuts delivered across a six-week production sprint.', featured: true },
+  {
+    id: 'ninja-creami',
+    title: 'CREAMi XL',
+    client: 'Ninja',
+    category: 'Commercial',
+    year: '2026',
+    img: ninjaCreami,
+    video: '/media/work/ninja-creami-loop.mp4',
+    full: blob('work/ninja-creami.mp4'),
+    services: ['Direction', 'Tabletop', 'Live Action'],
+    desc: 'Product launch for the Ninja CREAMi XL. Ingredient macros — strawberries, mango, oats — become sorbet and protein ice cream, then the family kitchen takes over.',
+    featured: true,
+  },
   {
     id: 'cheetos-queso',
     title: 'Cheetos Queso',
