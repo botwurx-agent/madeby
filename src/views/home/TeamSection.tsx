@@ -108,7 +108,7 @@ export function TeamSection() {
               <span className="member-body">
                 <span className="member-name">{m.name}</span>
                 <span className="member-role">
-                  {m.title} · {m.roles[0]}
+                  {[m.title, ...m.roles].join(' · ')}
                 </span>
                 <span className="member-short">{m.short}</span>
                 <span className="member-cta">
