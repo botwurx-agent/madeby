@@ -1,3 +1,4 @@
+import drivewayBts from '../assets/bts-driveway.webp';
 import alPastorBts from '../assets/bts-al-pastor.webp';
 import bigFatTacosBts from '../assets/bts-big-fat-tacos.webp';
 import delTacoBts from '../assets/bts-del-taco.webp';
@@ -67,6 +68,13 @@ export const BTS: BtsShot[] = [
     img: alPastorBts,
     video: '/media/bts/al-pastor-bts-loop.mp4',
     full: blob('bts/al-pastor-bts.mp4'),
+    portrait: true,
+  },
+  {
+    caption: 'On location — video village',
+    img: drivewayBts,
+    video: '/media/bts/driveway-bts-loop.mp4',
+    full: blob('bts/driveway-bts.mp4'),
     portrait: true,
   },
 ];
