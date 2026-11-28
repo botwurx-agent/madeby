@@ -7,9 +7,10 @@ import { WorkTile } from '../components/WorkTile';
 import { CATEGORIES, WORK } from '../data/work';
 import { useOverlay } from '../lib/Overlay';
 
-const FILTERS = ['All', ...CATEGORIES] as const;
+/** Only categories that have work in them get a filter. */
+const FILTERS = ['All', ...CATEGORIES.filter((c) => WORK.some((w) => w.category === c))] as const;
 
-/** "More >>" — every work sample, filterable. */
+/** "More >>" - every work sample, filterable. */
 export default function WorkPage() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>('All');
   const list = filter === 'All' ? WORK : WORK.filter((w) => w.category === filter);

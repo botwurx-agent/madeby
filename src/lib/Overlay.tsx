@@ -36,7 +36,7 @@ function insetFrom(origin: DOMRect, panel: DOMRect, radius: number) {
   return `inset(${t}px ${r}px ${b}px ${l}px round ${radius}px)`;
 }
 
-/** A thin centred band — where a panel shrinks to when its trigger is off-screen. */
+/** A thin centred band - where a panel shrinks to when its trigger is off-screen. */
 function centreBand(panel: DOMRect) {
   const v = panel.height / 2 - 1;
   return `inset(${v}px 0px ${v}px 0px round 0px)`;

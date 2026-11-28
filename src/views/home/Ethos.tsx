@@ -8,7 +8,7 @@ import { BtsCarousel } from './BtsCarousel';
 const WORDS = ETHOS.split(' ');
 const ACCENT_FROM = WORDS.length - ETHOS_ACCENT.split(' ').length;
 
-/** 1D — the ethos, lit word by word as you scroll, over a behind-the-scenes carousel. */
+/** 1D - the ethos, lit word by word as you scroll, over a behind-the-scenes carousel. */
 export function Ethos() {
   const textRef = useRef<HTMLParagraphElement>(null);
   // Holds and eases back while Services slides over it (see usePinned).

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MadeBy — black, white, and a little Lava Orange.
+   MadeBy: black, white, and a little Lava Orange.
    Colours and timing live in these variables.
    ========================================================================== */
 
@@ -443,7 +443,7 @@ body:has(.hero) .nav {
 }
 
 /* --------------------------------------------------------------------------
-   1A — Hero
+   1A: Hero
    -------------------------------------------------------------------------- */
 
 .hero {
@@ -587,7 +587,7 @@ body:has(.hero) .nav {
 }
 
 /* Stacked sections: a `.pin` section holds once fully scrolled into view and
-   eases back into a framed card while the next section slides up over it —
+   eases back into a framed card while the next section slides up over it -
    the same move as the hero. Order: Work (pinned) ← Crew (pinned) ← BTS. */
 .sheet > .section {
   position: relative;
@@ -638,7 +638,7 @@ body:has(.hero) .nav {
 }
 
 /* --------------------------------------------------------------------------
-   1B — Work grid + tiles
+   1B: Work grid + tiles
    -------------------------------------------------------------------------- */
 
 .grid {
@@ -1050,7 +1050,7 @@ body:has(.hero) .nav {
 }
 
 /* --------------------------------------------------------------------------
-   1C — Crew
+   1C: Crew
    -------------------------------------------------------------------------- */
 
 .members {
@@ -1277,7 +1277,7 @@ body:has(.hero) .nav {
 }
 
 /* --------------------------------------------------------------------------
-   1D — Ethos + BTS
+   1D: Ethos + BTS
    -------------------------------------------------------------------------- */
 
 .ethos-text {
@@ -1457,7 +1457,7 @@ body:has(.hero) .nav {
 }
 
 /* --------------------------------------------------------------------------
-   1E — Services
+   1E: Services
    -------------------------------------------------------------------------- */
 
 .phases {

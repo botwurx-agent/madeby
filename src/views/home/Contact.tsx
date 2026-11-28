@@ -17,8 +17,8 @@ export function Contact() {
     const name = String(data.get('name') ?? '');
     const email = String(data.get('email') ?? '');
     const message = String(data.get('message') ?? '');
-    const subject = `New project — ${name}`;
-    const body = `${message}\n\n— ${name}\n${email}`;
+    const subject = `New project: ${name}`;
+    const body = `${message}\n\n${name}\n${email}`;
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };

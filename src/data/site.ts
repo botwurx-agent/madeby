@@ -27,14 +27,14 @@ export const CONTACT_EMAIL = 'hello@madeby.studio';
 export const HERO_VIDEO: string | undefined = undefined;
 
 export const ETHOS =
-  'We are filmmakers who live on set. We obsess over the frame — the light, the pour, the steam, the split second — so food & beverage brands get work that looks as good as it tastes.';
+  'We are filmmakers who live on set. We obsess over the frame: the light, the pour, the steam, the split second. So food & beverage brands get work that looks as good as it tastes.';
 /** The closing phrase of ETHOS, which settles in orange once the reader scrolls past it. */
 export const ETHOS_ACCENT = 'as good as it tastes.';
 
 export const SITE_NAME = 'MadeBy';
 export const SITE_TAGLINE = 'Commercial production for food & beverage';
 export const SITE_DESCRIPTION =
-  'MadeBy is a commercial production company for food & beverage brands — pre-production, production and post, from first storyboard to final delivery.';
+  'MadeBy is a commercial production company for food & beverage brands: pre-production, production and post, from first storyboard to final delivery.';
 
 /**
  * Public site URL, used for canonical links, the sitemap and share images.

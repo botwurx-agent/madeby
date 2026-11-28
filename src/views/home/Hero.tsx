@@ -12,7 +12,7 @@ import { useTimecode } from '../../lib/hooks';
 const STILLS = [project01, allAmericanBurgers, hydrascience];
 
 /**
- * 1A — brand video. Opens like a shutter from a thin orange line, then eases
+ * 1A - brand video. Opens like a shutter from a thin orange line, then eases
  * back into a framed card as the work grid scrolls up over it.
  */
 export function Hero() {

@@ -11,7 +11,7 @@ const RING = Array.from({ length: 16 }, (_, k) => [Math.floor(k / 4), k % 4] as 
   ([r, c]) => !(r > 0 && r < 3 && c > 0 && c < 3),
 );
 
-/** 1E (expanded) — samples ring the phase description and ripple out from it. */
+/** 1E (expanded) - samples ring the phase description and ripple out from it. */
 function PhaseViewer({ phase, origin, onClose }: { phase: ServicePhase; origin: HTMLElement | null; onClose: () => void }) {
   const sample = useOverlay<ServiceItem>();
   return (
@@ -42,7 +42,7 @@ function PhaseViewer({ phase, origin, onClose }: { phase: ServicePhase; origin: 
                     className="phase-open"
                     onClick={(e) => sample.open(item, e.currentTarget)}
                     data-cursor="View"
-                    aria-label={`View ${item.name}${item.from ? ` — ${item.from}` : ''}`}
+                    aria-label={`View ${item.name}${item.from ? `: ${item.from}` : ''}`}
                   >
                     {frame}
                   </button>
@@ -68,7 +68,7 @@ function PhaseViewer({ phase, origin, onClose }: { phase: ServicePhase; origin: 
   );
 }
 
-/** 1E — the three phases. Each row opens its sample viewer. */
+/** 1E - the three phases. Each row opens its sample viewer. */
 export function Services() {
   const viewer = useOverlay<ServicePhase>();
 

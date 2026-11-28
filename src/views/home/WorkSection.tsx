@@ -8,7 +8,7 @@ import { FEATURED_WORK } from '../../data/work';
 import { useInView, usePinned } from '../../lib/hooks';
 import { useOverlay } from '../../lib/Overlay';
 
-/** 1B — 4×3 grid of looping samples. Click one to open the viewer. */
+/** 1B - 4×3 grid of looping samples. Click one to open the viewer. */
 export function WorkSection() {
   const viewer = useOverlay<number>();
   const [gridRef, seen] = useInView<HTMLDivElement>(0.1);

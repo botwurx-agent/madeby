@@ -27,7 +27,7 @@ export const TEAM: TeamMember[] = [
     roles: ['Producer', 'Motion Control Operator'],
     short: 'A decade of agency life, then a decision to only make films he believes in.',
     portrait: { img: stevePortrait, focus: '50% 15%' },
-    bio: "Steve spent ten years in agency life before walking away to make films he actually believed in. His background in fine art photography shapes every MadeBy frame — the geometry, the quality of light, the decisive moment. On set, Steve is quiet until something is wrong.",
+    bio: "Steve spent ten years in agency life before walking away to make films he actually believed in. His background in fine art photography shapes every MadeBy frame: the geometry, the quality of light, the decisive moment. On set, Steve is quiet until something is wrong.",
     work: ['big-fat-tacos', 'del-dorado-chicken', 'treat-yourself', 'all-american-burgers', 'cosori-juni', 'mezcla', 'kettle-and-fire', 'first-light', 'golden-hour', 'midnight-snack', 'sunday-bake', 'deep-cut'],
   },
   {

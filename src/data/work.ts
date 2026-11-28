@@ -44,7 +44,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/big-fat-tacos-loop.mp4',
     full: blob('work/big-fat-tacos.mp4'),
     services: ['Direction', 'Production', 'Color Grade'],
-    desc: "Summer menu campaign for Del Taco. Three days on location with a 20-person crew — bold, bright and unapologetically indulgent.",
+    desc: "Summer menu campaign for Del Taco. Three days on location with a 20-person crew. Bold, bright and unapologetically indulgent.",
     featured: true,
   },
   {
@@ -57,7 +57,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/treat-yourself-loop.mp4',
     full: blob('work/treat-yourself.mp4'),
     services: ['Direction', 'Production', 'Post'],
-    desc: "Launch spot for Hint's Treat Yourself variety pack. A dreamlike world for every flavor — strawberry cupcake, berry cobbler, pineapple whip and key lime pie. Tastes like dessert, hydrates like water.",
+    desc: "Launch spot for Hint's Treat Yourself variety pack. A dreamlike world for every flavor: strawberry cupcake, berry cobbler, pineapple whip and key lime pie. Tastes like dessert, hydrates like water.",
     featured: true,
   },
   {
@@ -70,7 +70,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/all-american-burgers-loop.mp4',
     full: blob('work/all-american-burgers.mp4'),
     services: ['Direction', 'Tabletop', 'Post'],
-    desc: "Launch spot for Wienerschnitzel's new All-American Burgers — Deluxe, Chili Cheese and Jalapeño BBQ Bacon. Bright, clean tabletop with a stars-and-stripes ribbon running through every shot.",
+    desc: "Launch spot for Wienerschnitzel's new All-American Burgers: Deluxe, Chili Cheese and Jalapeño BBQ Bacon. Bright, clean tabletop with a stars-and-stripes ribbon running through every shot.",
     featured: true,
   },
   {
@@ -83,7 +83,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/cosori-juni-loop.mp4',
     full: blob('work/cosori-juni.mp4'),
     services: ['Direction', 'Production', 'Color Grade'],
-    desc: 'Launch film for Juni, Cosori’s automated pour-over machine. Warm, slow, macro-led — from the bloom to the final brew, the ritual of pour-over at the push of a button.',
+    desc: 'Launch film for Juni, Cosori’s automated pour-over machine. Warm, slow, macro-led, from the bloom to the final brew, the ritual of pour-over at the push of a button.',
     featured: true,
   },
   {
@@ -96,7 +96,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/hydrascience-loop.mp4',
     full: blob('work/hydrascience.mp4'),
     services: ['Direction', 'High-Speed', 'Post'],
-    desc: 'Liquid I.V. Hydration Multiplier: transform ordinary water into extraordinary hydration. High-speed liquid and powder work built around one move — tear, pour, hydrate.',
+    desc: 'Liquid I.V. Hydration Multiplier: transform ordinary water into extraordinary hydration. High-speed liquid and powder work built around one move: tear, pour, hydrate.',
     featured: true,
   },
   {
@@ -148,7 +148,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/mezcla-loop.mp4',
     full: blob('work/mezcla.mp4'),
     services: ['Direction', 'Live Action', 'Color Grade'],
-    desc: 'Sun-soaked lifestyle spot for Mezcla Puff-Crispy Bars. Poolside, courtside and top-down in a convertible — a light, crispy protein bar that fits wherever the day goes.',
+    desc: 'Sun-soaked lifestyle spot for Mezcla Puff-Crispy Bars. Poolside, courtside and top-down in a convertible. A light, crispy protein bar that fits wherever the day goes.',
     featured: true,
   },
   {
@@ -187,7 +187,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/hint-rebrand-loop.mp4',
     full: blob('work/hint-rebrand.mp4'),
     services: ['Direction', 'Motion Control', 'Production', 'Post'],
-    desc: "The 30-second hero spot for Hint's rebrand. Bottles in a sky-blue world, a sea of cherries and high-speed pours — what water would taste like if it wanted people to drink it.",
+    desc: "The 30-second hero spot for Hint's rebrand. Bottles in a sky-blue world, a sea of cherries and high-speed pours. What water would taste like if it wanted people to drink it.",
     featured: true,
   },
   {
@@ -200,7 +200,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/poppi-orange-cream-loop.mp4',
     full: blob('work/poppi-orange-cream.mp4'),
     services: ['Direction', 'Tabletop', 'High-Speed', 'Post'],
-    desc: "Orange Cream for Poppi. Juicy, creamy, bubbly — high-speed pours, a float that overflows and a can that never stops sweating.",
+    desc: "Orange Cream for Poppi. Juicy, creamy, bubbly. High-speed pours, a float that overflows and a can that never stops sweating.",
     featured: true,
   },
   {
@@ -225,7 +225,7 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/ninja-creami-loop.mp4',
     full: blob('work/ninja-creami.mp4'),
     services: ['Direction', 'Tabletop', 'Live Action'],
-    desc: 'Product launch for the Ninja CREAMi XL. Ingredient macros — strawberries, mango, oats — become sorbet and protein ice cream, then the family kitchen takes over.',
+    desc: 'Product launch for the Ninja CREAMi XL. Ingredient macros (strawberries, mango, oats) become sorbet and protein ice cream, then the family kitchen takes over.',
     featured: true,
   },
   {
@@ -238,20 +238,9 @@ const ALL_WORK: WorkSample[] = [
     video: '/media/work/cheetos-queso-loop.mp4',
     full: blob('work/cheetos-queso.mp4'),
     services: ['Production', 'Tabletop', 'Food Styling', 'Post'],
-    desc: 'A 10-second hit for the Del Taco × Cheetos Queso menu. Burritos, a slow queso dip and a loaded nacho build — orange on orange.',
+    desc: 'A 10-second hit for the Del Taco × Cheetos Queso menu. Burritos, a slow queso dip and a loaded nacho build. Orange on orange.',
     featured: true,
   },
-  { id: 'first-light', title: 'First Light', client: 'Coffee Label', category: 'Brand Film', year: '2024', services: ['Direction', 'Production', 'Post'], desc: 'A brand film for a single-origin coffee label. Three countries, one cup.', featured: true },
-  { id: 'the-pour', title: 'The Pour', client: 'Craft Beer Co.', category: 'Social', year: '2024', services: ['Production', 'Graphic Animation'], desc: 'A vertical-first social series built around one perfect pour per week.', featured: true },
-  { id: 'golden-hour', title: 'Golden Hour', client: 'Spirits Brand', category: 'Brand Film', year: '2024', services: ['Direction', 'Production', 'Color Grade'], desc: 'The craft of distilling, grain to glass, shot over a full harvest cycle.', featured: true },
-  { id: 'deep-cut', title: 'Deep Cut', client: 'Butcher & Co.', category: 'Campaign', year: '2023', services: ['Creative Strategy', 'Direction'], desc: 'Raw, textured and unfiltered. Shot on 16mm for a genuine analog look.', featured: true },
-  { id: 'steam', title: 'Steam', client: 'Noodle House', category: 'Social', year: '2024', services: ['Production', 'Tabletop'], desc: 'Tabletop macro work for a ramen chain — every frame built around rising steam.', featured: true },
-  { id: 'fizz', title: 'Fizz', client: 'Soda Brand', category: 'Commercial', year: '2023', services: ['High-Speed', 'VFX'], desc: 'Phantom high-speed bubbles and splash composites for a sparkling soda launch.', featured: true },
-  { id: 'sunday-bake', title: 'Sunday Bake', client: 'Bakery', category: 'Brand Film', year: '2022', services: ['Direction', 'Production', 'Post'], desc: 'A quiet documentary portrait of a family bakery, opening to close.', featured: true },
-  { id: 'cold-brew', title: 'Cold Brew', client: 'Coffee Label', category: 'Campaign', year: '2024', services: ['Production', 'Color Grade'], desc: 'A summer cold-brew push across broadcast, retail screens and social.', featured: true },
-  { id: 'vineyard-run', title: 'Vineyard Run', client: 'Wine Estate', category: 'Brand Film', year: '2022', services: ['Direction', 'Production', 'Post'], desc: 'Harvest season at a boutique wine estate. Twelve minutes, award-nominated.', featured: false },
-  { id: 'slice', title: 'Slice', client: 'Pizza Co.', category: 'Social', year: '2023', services: ['Production', 'Resolution Sizes'], desc: 'The cheese pull, 40 ways. A cut-down library for every platform and ratio.', featured: false },
-  { id: 'harvest', title: 'Harvest', client: 'Grocer', category: 'Commercial', year: '2023', services: ['Direction', 'Production'], desc: 'Farm-to-shelf spot following produce from field to store in a single day.', featured: false },
 ];
 
 /** Everything on the site: ALL_WORK minus hidden samples. */

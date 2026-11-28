@@ -33,7 +33,7 @@ export function WorkTile({ sample, index, onOpen, sizes, compact = false }: Prop
       onFocus={() => setHot(true)}
       onBlur={() => setHot(false)}
       data-cursor="Play"
-      aria-label={`${sample.title} — ${sample.client}. Open viewer`}
+      aria-label={`${sample.title}: ${sample.client}. Open viewer`}
     >
       <span className="tile-frame">
         <Media source={sample} label={sample.title} sizes={sizes} playing={hot} />

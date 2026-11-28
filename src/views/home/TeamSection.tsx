@@ -24,7 +24,7 @@ function Portrait({ member, sizes }: { member: TeamMember; sizes: string }) {
   );
 }
 
-/** 1C (expanded) — profile with role, bio and a strip of their work. */
+/** 1C (expanded) - profile with role, bio and a strip of their work. */
 function Profile({ member, origin, onClose }: { member: TeamMember; origin: HTMLElement | null; onClose: () => void }) {
   const samples = member.work.map((id) => WORK.find((w) => w.id === id)).filter(Boolean) as WorkSample[];
   const viewer = useOverlay<number>();
@@ -37,7 +37,7 @@ function Profile({ member, origin, onClose }: { member: TeamMember; origin: HTML
   };
 
   return (
-    <Overlay label={`${member.name} — profile`} origin={origin} onClose={onClose} className="profile">
+    <Overlay label={`${member.name} profile`} origin={origin} onClose={onClose} className="profile">
       {() => (
         <>
           <div className="profile-head">
@@ -82,7 +82,7 @@ function Profile({ member, origin, onClose }: { member: TeamMember; origin: HTML
   );
 }
 
-/** 1C — the crew, one row each. Click a row to open the profile. */
+/** 1C - the crew, one row each. Click a row to open the profile. */
 export function TeamSection() {
   const profile = useOverlay<TeamMember>();
   const [listRef, seen] = useInView<HTMLUListElement>(0.15);

@@ -33,7 +33,7 @@ export function Viewer({ list, start, origin, onClose, more = true }: Props) {
   }, [list.length]);
 
   return (
-    <Overlay label={`${sample.title} — ${sample.client}`} origin={origin} onClose={onClose} className="viewer">
+    <Overlay label={`${sample.title}: ${sample.client}`} origin={origin} onClose={onClose} className="viewer">
       {() => (
         <>
           <div className="viewer-frame">
