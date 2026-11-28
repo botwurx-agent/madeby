@@ -42,7 +42,7 @@ export const TEAM: TeamMember[] = [
   },
   {
     id: 'greg',
-    name: 'Greg Lozano',
+    name: 'Greg Lazcano',
     title: 'Lighting Engineer',
     roles: ['Gaffer'],
     short: 'Has lit every MadeBy set since day one. Economical, intentional, always beautiful.',

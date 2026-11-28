@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useRef } from 'react';
 import { Media } from '../../components/Media';
 import { SectionHead } from '../../components/SectionHead';
@@ -119,6 +120,12 @@ export function TeamSection() {
           </li>
         ))}
       </ul>
+
+      <div className="section-foot">
+        <Link href="/about" className="more-link">
+          More <span aria-hidden="true">&gt;&gt;</span>
+        </Link>
+      </div>
 
       {profile.item && <Profile member={profile.item} origin={profile.origin} onClose={profile.close} />}
     </section>

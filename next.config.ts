@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
   // Pages from the previous version of the site.
   async redirects() {
     return [
-      { source: '/about', destination: '/#about', permanent: true },
       { source: '/work/:slug', destination: '/work', permanent: true },
     ];
   },
