@@ -1,3 +1,4 @@
+import alPastorBts from '../assets/bts-al-pastor.webp';
 import bigFatTacosBts from '../assets/bts-big-fat-tacos.webp';
 import delTacoBts from '../assets/bts-del-taco.webp';
 import hintBts from '../assets/bts-hint.webp';
@@ -59,6 +60,13 @@ export const BTS: BtsShot[] = [
     img: bigFatTacosBts,
     video: '/media/bts/big-fat-tacos-bts-loop.mp4',
     full: blob('bts/big-fat-tacos-bts.mp4'),
+    portrait: true,
+  },
+  {
+    caption: 'Del Taco — Al Pastor, the Right Way',
+    img: alPastorBts,
+    video: '/media/bts/al-pastor-bts-loop.mp4',
+    full: blob('bts/al-pastor-bts.mp4'),
     portrait: true,
   },
 ];
